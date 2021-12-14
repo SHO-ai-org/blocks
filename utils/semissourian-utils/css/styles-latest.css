@@ -1,0 +1,939 @@
+/*
+  CSS for brand "semissourian" - "Semissourian - "SEMO BrandOS"
+  Version: 444
+  Generated at (local time): 17 October 2021 15:12:57
+  Edited from: https://semissourian.sho.ai
+
+  The brand style is also available at:
+  - CSS: with a lock on this style's version at https://semissourian-assets.sho.ai/css/styles-444.css
+  - CSS: on latest style's version at https://semissourian-assets.sho.ai/css/styles-latest.css
+  - JSON: with a lock on this style's version at https://semissourian-assets.sho.ai/json/styles-444.json
+  - JSON: on latest style's version at https://semissourian-assets.sho.ai/json/styles-latest.json
+
+  Brand contact: contact@sho.ai
+  Technical contact: support@sho.ai
+  This css file is continuously improved. Please let us know if there are any classes you would like to have. */
+
+
+/* Global */
+
+:root {
+    --golden-ratio-brand: 7;
+    --logo-favicon-background-url-brand: url('https://semissourian-assets.sho.ai/logos/favicon-Artboard 1-97abb1a5.png');
+    --logo-appicon-background-url-brand: url('https://semissourian-assets.sho.ai/logos/Asset 29@2000x-1cb29eb9.png');
+    --logo-horizontallockup-background-url-brand: url('https://semissourian-assets.sho.ai/logos/Southeast-Missourian-Gray-bb48637f (1)-20492398.svg');
+    --logo-logomark-background-url-brand: url('https://semissourian-assets.sho.ai/logos/Asset 28-46e1799f.svg');
+    --logo-verticallockup-background-url-brand: url('https://semissourian-assets.sho.ai/logos/verticallockup-Artboard 1@2x-2fbdbcb8.png');
+    --logo-dark-appicon-background-url-brand: url('https://semissourian-assets.sho.ai/logos/Asset 29@2000x-1cb29eb9.png');
+    --logo-dark-horizontallockup-background-url-brand: url('https://semissourian-assets.sho.ai/logos/Southeast-Missourian-Gray-bb48637f (1)-20492398.svg');
+    --logo-dark-logomark-background-url-brand: url('https://semissourian-assets.sho.ai/logos/Asset 28-46e1799f.svg');
+    --logo-dark-verticallockup-background-url-brand: url('https://semissourian-assets.sho.ai/logos/verticallockup-Artboard 1@2x-2fbdbcb8.png');
+}
+
+.logo-favicon-background-image-url-brand {
+    background-image: url('https://semissourian-assets.sho.ai/logos/favicon-Artboard 1-97abb1a5.png');
+}
+
+.logo-appicon-background-image-url-brand {
+    background-image: url('https://semissourian-assets.sho.ai/logos/Asset 29@2000x-1cb29eb9.png');
+}
+
+.logo-appicon-background-color {
+    background-color: rgba(36, 36, 36, 1);
+}
+
+.logo-horizontallockup-background-image-url-brand {
+    background-image: url('https://semissourian-assets.sho.ai/logos/Southeast-Missourian-Gray-bb48637f (1)-20492398.svg');
+}
+
+.logo-horizontallockup-background-color {
+    background-color: rgba(64, 114, 151, 1);
+}
+
+.logo-logomark-background-url-brand {
+    background-image: url('https://semissourian-assets.sho.ai/logos/Asset 28-46e1799f.svg');
+}
+
+.logo-logomark-background-color {
+    background-color: rgba(64, 114, 151, 1);
+}
+
+.logo-verticallockup-background-image-url-brand {
+    background-image: url('https://semissourian-assets.sho.ai/logos/verticallockup-Artboard 1@2x-2fbdbcb8.png');
+}
+
+.logo-verticallockup-background-color {
+    background-color: rgba(64, 114, 151, 1);
+}
+
+.logo-dark-appicon-background-image-url-brand {
+    background-image: url('https://semissourian-assets.sho.ai/logos/favicon-Artboard 1-97abb1a5.png');
+}
+
+.logo-dark-appicon-background-color {
+    background-color: rgba(36, 36, 36, 1);
+}
+
+.logo-dark-horizontallockup-background-image-url-brand {
+    background-image: url('https://semissourian-assets.sho.ai/logos/Southeast-Missourian-Gray-bb48637f.svg');
+}
+
+.logo-dark-horizontallockup-background-color {
+    background-color: rgba(64, 114, 151, 1);
+}
+
+.logo-dark-logomark-background-url-brand {
+    background-image: url('https://semissourian-assets.sho.ai/logos/dark-se-logo-23d7ec4c.svg');
+}
+
+.logo-dark-logomark-background-color {
+    background-color: rgba(64, 114, 151, 1);
+}
+
+.logo-dark-verticallockup-background-image-url-brand {
+    background-image: url('https://semissourian-assets.sho.ai/logos/dark-se-logo-23d7ec4c.svg');
+}
+
+.logo-dark-verticallockup-background-color {
+    background-color: rgba(64, 114, 151, 1);
+}
+
+.placeholder-image-1 {
+    background-image: url('https://semissourian-assets.sho.ai/placeholderImages/image1AssetId-vonecia-carswell-3cBFqagweZM-unsplash-a0bee998.jpeg');
+}
+
+.placeholder-image-2 {
+    background-image: url('https://semissourian-assets.sho.ai/placeholderImages/image2AssetId-hanny-naibaho-aWXVxy8BSzc-unsplash-26c4eb33.jpeg');
+}
+
+.placeholder-image-3 {
+    background-image: url('https://semissourian-assets.sho.ai/placeholderImages/image2AssetId-johan-serfontein-Sdy3eIwEScE-unsplash-7d5f187a.jpeg');
+}
+
+.placeholder-image-4 {
+    background-image: url('https://semissourian-assets.sho.ai/placeholderImages/image2AssetId-justin-wilkens-RM2N_iJiM3c-unsplash-6872eddf.jpeg');
+}
+
+.placeholder-image-5 {
+    background-image: url('https://semissourian-assets.sho.ai/placeholderImages/image2AssetId-mark-mcgregor-qutNazk9dpk-unsplash-81aa1e47.jpeg');
+}
+
+.placeholder-image-6 {
+    background-image: url('https://semissourian-assets.sho.ai/placeholderImages/image2AssetId-mary-hammel-8VRT5qlrL9s-unsplash-d8b08a8c.jpeg');
+}
+
+.placeholder-image-7 {
+    background-image: url('https://semissourian-assets.sho.ai/placeholderImages/image2AssetId-taylor-a7iPP9Ia-S8-unsplash-5bfcf091.jpeg');
+}
+
+.placeholder-image-8 {
+    background-image: url('https://semissourian-assets.sho.ai/placeholderImages/image2AssetId-taylor-v8C4syw13Ks-unsplash-7d745d5d.jpeg');
+}
+
+.placeholder-image-9 {
+    background-image: url('https://semissourian-assets.sho.ai/placeholderImages/image2AssetId-danique-photography-HusIRI6pw4k-unsplash-e37546a5.jpeg');
+}
+
+.placeholder-image-10 {
+    background-image: url('https://semissourian-assets.sho.ai/placeholderImages/image2AssetId-caleb-george-ClJRNz6DxFM-unsplash-718e6d60.jpeg');
+}
+
+
+/* Fontfaces */
+
+@font-face {
+    font-family: Neuton;
+    src: url('https://fonts.gstatic.com/s/neuton/v10/UMBTrPtMoH62xUZyyA.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Neuton;
+    src: url('https://fonts.gstatic.com/s/neuton/v10/UMBTrPtMoH62xUZyyA.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Neuton;
+    src: url('https://fonts.gstatic.com/s/neuton/v10/UMBTrPtMoH62xUZyyA.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Neuton;
+    src: url('https://fonts.gstatic.com/s/neuton/v10/UMBTrPtMoH62xUZyyA.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Neuton;
+    src: url('https://fonts.gstatic.com/s/neuton/v10/UMBTrPtMoH62xUZyyA.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Me5Q.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Me5Q.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Me5Q.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Me5Q.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Me5Q.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Me5Q.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Neuton;
+    src: url('https://fonts.gstatic.com/s/neuton/v10/UMBRrPtMoH62xUZCyog_.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Me5Q.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Me5Q.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+/* Paragraph styles */
+
+.h1-brand,
+h1 {
+    text-transform: none;
+    font-size: 60px;
+    line-height: 1.1em;
+    margin-bottom: 39px;
+    font-family: Neuton;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.h2-brand,
+h2 {
+    text-transform: none;
+    font-size: 50px;
+    line-height: 1.2em;
+    margin-bottom: 30px;
+    font-family: Neuton;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.h3-brand,
+h3 {
+    text-transform: none;
+    font-size: 35px;
+    line-height: 1.4em;
+    margin-bottom: 23px;
+    font-family: Neuton;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.h4-brand,
+h4 {
+    text-transform: none;
+    font-size: 30px;
+    line-height: 1.2em;
+    margin-bottom: 19px;
+    font-family: Neuton;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.h5-brand,
+h5 {
+    text-transform: none;
+    font-size: 26px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+    font-family: Neuton;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.h6-brand,
+h6 {
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 0.03em;
+    line-height: 1.4em;
+    margin-bottom: 14px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.subtitle1-brand {
+    text-transform: none;
+    font-size: 28px;
+    line-height: 1.4em;
+    margin-bottom: 17px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.subtitle2-brand {
+    text-transform: none;
+    font-size: 14px;
+    line-height: 1.4em;
+    margin-bottom: 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.body1-brand,
+p {
+    text-transform: none;
+    font-size: 17px;
+    line-height: 1.6em;
+    margin-bottom: 13px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.body2-brand {
+    text-transform: none;
+    font-size: 14px;
+    line-height: 1.5em;
+    margin-bottom: 11px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.button-brand {
+    text-transform: capitalize;
+    font-size: 16px;
+    line-height: 1.4em;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.caption-brand {
+    text-transform: none;
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 8px;
+    font-family: Neuton;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.overline-brand {
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    line-height: 1.4em;
+    margin-bottom: 9px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.blockquote-brand {
+    text-transform: none;
+    font-size: 17px;
+    line-height: 1.4em;
+    margin-bottom: 20px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    padding-left: 21px;
+    border-left: 7px solid rgba(45, 45, 45, 1);
+}
+
+
+/* Buttons */
+
+.button-primary-brand {
+    background-color: rgba(243, 99, 4, 1);
+    border-color: rgba(255, 255, 255, 1);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.button-primary-brand:hover {
+    background-color: rgba(243, 99, 4, 0.84);
+}
+
+.button-primary-disabled-brand {
+    background-color: rgba(36, 36, 36, 0.31999999999999995);
+    border-color: rgba(36, 36, 36, 0.31999999999999995);
+    color: rgba(70, 70, 70, 1);
+}
+
+.button-secondary-brand {
+    background-color: rgba(64, 114, 151, 1);
+    border-color: unset;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: unset;
+}
+
+.button-secondary-brand:hover {
+    background-color: rgba(64, 114, 151, 0.84);
+}
+
+.button-secondary-disabled-brand {
+    background-color: rgba(36, 36, 36, 0.31999999999999995);
+    border-color: rgba(36, 36, 36, 0.31999999999999995);
+    color: rgba(70, 70, 70, 1);
+}
+
+.button-tertiary-brand {
+    background-color: rgba(239, 239, 239, 1);
+    border-color: unset;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: rgba(64, 114, 151, 1);
+}
+
+.button-tertiary-brand:hover {
+    background-color: rgba(239, 239, 239, 0.84);
+}
+
+.button-tertiary-disabled-brand {
+    background-color: rgba(36, 36, 36, 0.31999999999999995);
+    border-color: rgba(36, 36, 36, 0.31999999999999995);
+    color: rgba(70, 70, 70, 1);
+}
+
+.fab {
+    border-radius: 50%;
+}
+
+
+/* Hyperlink */
+
+a,
+.hyperlink {
+    color: rgba(54, 96, 128, 1);
+}
+
+
+/* Primary Colors */
+
+
+/* SE */
+
+.ali-brand {
+    color: rgba(64, 114, 151, 1);
+}
+
+.ali-brand-hover:hover {
+    color: rgba(64, 114, 151, 1);
+}
+
+.ali-background-brand {
+    background-color: rgba(64, 114, 151, 1);
+}
+
+.ali-background-brand-hover:hover {
+    background-color: rgba(64, 114, 151, 1);
+}
+
+.ali-border-brand {
+    border-color: rgba(64, 114, 151, 1);
+}
+
+.ali-svg-fill-path-brand path {
+    fill: rgba(64, 114, 151, 1);
+}
+
+.ali-stroke {
+    stroke: rgba(64, 114, 151, 1);
+}
+
+
+/* Navy */
+
+.ben-brand {
+    color: rgba(54, 96, 128, 1);
+}
+
+.ben-brand-hover:hover {
+    color: rgba(54, 96, 128, 1);
+}
+
+.ben-background-brand {
+    background-color: rgba(54, 96, 128, 1);
+}
+
+.ben-background-brand-hover:hover {
+    background-color: rgba(54, 96, 128, 1);
+}
+
+.ben-border-brand {
+    border-color: rgba(54, 96, 128, 1);
+}
+
+.ben-svg-fill-path-brand path {
+    fill: rgba(54, 96, 128, 1);
+}
+
+.ben-stroke {
+    stroke: rgba(54, 96, 128, 1);
+}
+
+
+/* Blue */
+
+.cal-brand {
+    color: rgba(96, 172, 230, 1);
+}
+
+.cal-brand-hover:hover {
+    color: rgba(96, 172, 230, 1);
+}
+
+.cal-background-brand {
+    background-color: rgba(96, 172, 230, 1);
+}
+
+.cal-background-brand-hover:hover {
+    background-color: rgba(96, 172, 230, 1);
+}
+
+.cal-border-brand {
+    border-color: rgba(96, 172, 230, 1);
+}
+
+.cal-svg-fill-path-brand path {
+    fill: rgba(96, 172, 230, 1);
+}
+
+.cal-stroke {
+    stroke: rgba(96, 172, 230, 1);
+}
+
+
+/* Orange */
+
+.dan-brand {
+    color: rgba(243, 99, 4, 1);
+}
+
+.dan-brand-hover:hover {
+    color: rgba(243, 99, 4, 1);
+}
+
+.dan-background-brand {
+    background-color: rgba(243, 99, 4, 1);
+}
+
+.dan-background-brand-hover:hover {
+    background-color: rgba(243, 99, 4, 1);
+}
+
+.dan-border-brand {
+    border-color: rgba(243, 99, 4, 1);
+}
+
+.dan-svg-fill-path-brand path {
+    fill: rgba(243, 99, 4, 1);
+}
+
+.dan-stroke {
+    stroke: rgba(243, 99, 4, 1);
+}
+
+
+/* Secondary Colors */
+
+
+/* Han */
+
+.han-brand {
+    color: rgba(74, 180, 249, 1);
+}
+
+.han-brand-hover:hover {
+    color: rgba(74, 180, 249, 1);
+}
+
+.han-background-brand {
+    background-color: rgba(74, 180, 249, 1);
+}
+
+.han-background-brand-hover:hover {
+    background-color: rgba(74, 180, 249, 1);
+}
+
+.han-border-brand {
+    border-color: rgba(74, 180, 249, 1);
+}
+
+.han-svg-fill-path-brand path {
+    fill: rgba(74, 180, 249, 1);
+}
+
+.han-stroke {
+    stroke: rgba(74, 180, 249, 1);
+}
+
+
+/* Ivy */
+
+.ivy-brand {
+    color: rgba(150, 46, 38, 1);
+}
+
+.ivy-brand-hover:hover {
+    color: rgba(150, 46, 38, 1);
+}
+
+.ivy-background-brand {
+    background-color: rgba(150, 46, 38, 1);
+}
+
+.ivy-background-brand-hover:hover {
+    background-color: rgba(150, 46, 38, 1);
+}
+
+.ivy-border-brand {
+    border-color: rgba(150, 46, 38, 1);
+}
+
+.ivy-svg-fill-path-brand path {
+    fill: rgba(150, 46, 38, 1);
+}
+
+.ivy-stroke {
+    stroke: rgba(150, 46, 38, 1);
+}
+
+
+/* Jim */
+
+.jim-brand {
+    color: rgba(80, 144, 53, 1);
+}
+
+.jim-brand-hover:hover {
+    color: rgba(80, 144, 53, 1);
+}
+
+.jim-background-brand {
+    background-color: rgba(80, 144, 53, 1);
+}
+
+.jim-background-brand-hover:hover {
+    background-color: rgba(80, 144, 53, 1);
+}
+
+.jim-border-brand {
+    border-color: rgba(80, 144, 53, 1);
+}
+
+.jim-svg-fill-path-brand path {
+    fill: rgba(80, 144, 53, 1);
+}
+
+.jim-stroke {
+    stroke: rgba(80, 144, 53, 1);
+}
+
+
+/* Kay */
+
+.kay-brand {
+    color: rgba(196, 153, 4, 1);
+}
+
+.kay-brand-hover:hover {
+    color: rgba(196, 153, 4, 1);
+}
+
+.kay-background-brand {
+    background-color: rgba(196, 153, 4, 1);
+}
+
+.kay-background-brand-hover:hover {
+    background-color: rgba(196, 153, 4, 1);
+}
+
+.kay-border-brand {
+    border-color: rgba(196, 153, 4, 1);
+}
+
+.kay-svg-fill-path-brand path {
+    fill: rgba(196, 153, 4, 1);
+}
+
+.kay-stroke {
+    stroke: rgba(196, 153, 4, 1);
+}
+
+
+/* Leo */
+
+.leo-brand {
+    color: rgba(214, 120, 9, 1);
+}
+
+.leo-brand-hover:hover {
+    color: rgba(214, 120, 9, 1);
+}
+
+.leo-background-brand {
+    background-color: rgba(214, 120, 9, 1);
+}
+
+.leo-background-brand-hover:hover {
+    background-color: rgba(214, 120, 9, 1);
+}
+
+.leo-border-brand {
+    border-color: rgba(214, 120, 9, 1);
+}
+
+.leo-svg-fill-path-brand path {
+    fill: rgba(214, 120, 9, 1);
+}
+
+.leo-stroke {
+    stroke: rgba(214, 120, 9, 1);
+}
+
+
+/* Grayscale Colors */
+
+
+/* Nan */
+
+.nan-brand {
+    color: rgba(36, 36, 36, 1);
+}
+
+.nan-brand-hover:hover {
+    color: rgba(36, 36, 36, 1);
+}
+
+.nan-background-brand {
+    background-color: rgba(36, 36, 36, 1);
+}
+
+.nan-background-brand-hover:hover {
+    background-color: rgba(36, 36, 36, 1);
+}
+
+.nan-border-brand {
+    border-color: rgba(36, 36, 36, 1);
+}
+
+.nan-svg-fill-path-brand path {
+    fill: rgba(36, 36, 36, 1);
+}
+
+.nan-stroke {
+    stroke: rgba(36, 36, 36, 1);
+}
+
+
+/* Ota */
+
+.ota-brand {
+    color: rgba(45, 45, 45, 1);
+}
+
+.ota-brand-hover:hover {
+    color: rgba(45, 45, 45, 1);
+}
+
+.ota-background-brand {
+    background-color: rgba(45, 45, 45, 1);
+}
+
+.ota-background-brand-hover:hover {
+    background-color: rgba(45, 45, 45, 1);
+}
+
+.ota-border-brand {
+    border-color: rgba(45, 45, 45, 1);
+}
+
+.ota-svg-fill-path-brand path {
+    fill: rgba(45, 45, 45, 1);
+}
+
+.ota-stroke {
+    stroke: rgba(45, 45, 45, 1);
+}
+
+
+/* Pam */
+
+.pam-brand {
+    color: rgba(70, 70, 70, 1);
+}
+
+.pam-brand-hover:hover {
+    color: rgba(70, 70, 70, 1);
+}
+
+.pam-background-brand {
+    background-color: rgba(70, 70, 70, 1);
+}
+
+.pam-background-brand-hover:hover {
+    background-color: rgba(70, 70, 70, 1);
+}
+
+.pam-border-brand {
+    border-color: rgba(70, 70, 70, 1);
+}
+
+.pam-svg-fill-path-brand path {
+    fill: rgba(70, 70, 70, 1);
+}
+
+.pam-stroke {
+    stroke: rgba(70, 70, 70, 1);
+}
+
+
+/* Qui */
+
+.qui-brand {
+    color: rgba(150, 150, 150, 1);
+}
+
+.qui-brand-hover:hover {
+    color: rgba(150, 150, 150, 1);
+}
+
+.qui-background-brand {
+    background-color: rgba(150, 150, 150, 1);
+}
+
+.qui-background-brand-hover:hover {
+    background-color: rgba(150, 150, 150, 1);
+}
+
+.qui-border-brand {
+    border-color: rgba(150, 150, 150, 1);
+}
+
+.qui-svg-fill-path-brand path {
+    fill: rgba(150, 150, 150, 1);
+}
+
+.qui-stroke {
+    stroke: rgba(150, 150, 150, 1);
+}
+
+
+/* Roy */
+
+.roy-brand {
+    color: rgba(239, 239, 239, 1);
+}
+
+.roy-brand-hover:hover {
+    color: rgba(239, 239, 239, 1);
+}
+
+.roy-background-brand {
+    background-color: rgba(239, 239, 239, 1);
+}
+
+.roy-background-brand-hover:hover {
+    background-color: rgba(239, 239, 239, 1);
+}
+
+.roy-border-brand {
+    border-color: rgba(239, 239, 239, 1);
+}
+
+.roy-svg-fill-path-brand path {
+    fill: rgba(239, 239, 239, 1);
+}
+
+.roy-stroke {
+    stroke: rgba(239, 239, 239, 1);
+}
+
+
+/* Sue */
+
+.sue-brand {
+    color: rgba(255, 255, 255, 1);
+}
+
+.sue-brand-hover:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.sue-background-brand {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.sue-background-brand-hover:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.sue-border-brand {
+    border-color: rgba(255, 255, 255, 1);
+}
+
+.sue-svg-fill-path-brand path {
+    fill: rgba(255, 255, 255, 1);
+}
+
+.sue-stroke {
+    stroke: rgba(255, 255, 255, 1);
+}
