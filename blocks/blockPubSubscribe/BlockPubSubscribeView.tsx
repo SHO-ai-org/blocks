@@ -1,67 +1,61 @@
-import { useSession } from 'next-auth/react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { FC, useEffect } from 'react'
+import { useSession } from "next-auth/react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { FC, useEffect } from "react";
 
-import { stripePlans } from '../../../../../utils/publication-utils'
-import { postData } from '../../../../../utils/rest-utils'
-import { formatToPrice } from '../../../../../utils/string-utils'
-import { getStripe } from '../../../../../utils/stripe-utils'
-import { BlockViewProps } from '../../../../../utils/typescript-utils'
-import { BlockPubSubscribeProps } from './blockPubSubscribe'
+import { stripePlans } from "../../../../../utils/publication-utils";
+import { postData } from "../../../../../utils/rest-utils";
+import { formatToPrice } from "../../../../../utils/string-utils";
+import { getStripe } from "../../../../../utils/stripe-utils";
+import { BlockViewProps } from "../../../../../utils/typescript-utils";
+import { BlockPubSubscribeProps } from "./blockPubSubscribe";
 
-const BlockSubscribeView: FC<BlockViewProps<BlockPubSubscribeProps>> = props => {
-  const { status, data: session } = useSession()
-  const subscriber = session?.user
-  const router = useRouter()
+const BlockSubscribeView: FC<BlockViewProps<BlockPubSubscribeProps>> = (
+  props,
+) => {
+  const { status, data: session } = useSession();
+  const subscriber = session?.user;
+  const router = useRouter();
 
-  const handleCheckout = async priceId => {
+  const handleCheckout = async (priceId: string) => {
     // TODO: there should be better UI for this case
-    if (status === 'loading') {
-      return
-    }
-
-    // User is not authenticated
-    if (status !== 'authenticated') {
-      return router.push({
-        pathname: '/checkout',
-        query: { priceId },
-      })
+    if (status === "loading") {
+      return;
     }
 
     // User already has a subscription
     if (subscriber?.stripeSubscriptions?.length) {
-      return router.push('/account')
+      return router.push("/account");
     }
 
     // Subcribe the user
     try {
       const { sessionId, accountId } = await postData({
-        url: '/api/create-checkout-session',
+        url: "/api/create-checkout-session",
         data: { price: priceId },
-      })
-      const stripe = await getStripe(accountId)
-      stripe.redirectToCheckout({ sessionId })
+      });
+      const stripe = await getStripe(accountId);
+      stripe.redirectToCheckout({ sessionId });
     } catch (error) {
-      return alert(error)
+      return alert(error);
     }
-  }
+  };
 
-  const hasSubscriptions = !!subscriber?.stripeSubscriptions?.length
-  const userIsLegacySubscriber = subscriber?.legacySubscription
+  const hasSubscriptions = !!subscriber?.stripeSubscriptions?.length;
+  const userIsLegacySubscriber = subscriber?.legacySubscription;
 
   useEffect(() => {
     // If user already subscribed, redirect to their account
     if (
       !!(
-        (status !== 'loading' && router.isReady && hasSubscriptions) ||
-        (status !== 'loading' && userIsLegacySubscriber)
+        (status !== "loading" && router.isReady && hasSubscriptions) ||
+        (status !== "loading" && userIsLegacySubscriber)
       )
     ) {
       // TODO: perhaps add UI here explaining the redirection or showing a link to redirect to account or home
-      router.push('/account')
+      router.push("/account");
     }
-  }, [status, router, hasSubscriptions, userIsLegacySubscriber])
+  }, [status, router, hasSubscriptions, userIsLegacySubscriber]);
 
   return (
     <div className="subscribe-options section roy-background-brand wf-section">
@@ -77,9 +71,10 @@ const BlockSubscribeView: FC<BlockViewProps<BlockPubSubscribeProps>> = props => 
             <br />
           </p>
           <p className="body1-brand qui-brand body2-brand ch-70">
-            The Southeast Missourian serves the region though investigative reporting and unparalleled local news
-            coverage; by providing a public forum on issues of importance; and by celebrating the people and
-            accomplishments of our local communities. <br />
+            The Southeast Missourian serves the region though investigative
+            reporting and unparalleled local news coverage; by providing a
+            public forum on issues of importance; and by celebrating the people
+            and accomplishments of our local communities. <br />
           </p>
           <div className="space"></div>
           <div className="space"></div>
@@ -94,16 +89,20 @@ const BlockSubscribeView: FC<BlockViewProps<BlockPubSubscribeProps>> = props => 
                   <br />
                 </h3>
                 <p className="subtitle1-brand">
-                  {formatToPrice(stripePlans.printAndDigital.price)} / {stripePlans.printAndDigital.occurence}
+                  {formatToPrice(stripePlans.printAndDigital.price)} /{" "}
+                  {stripePlans.printAndDigital.occurence}
                 </p>
                 <a
                   onClick={() => {
-                    handleCheckout(stripePlans.printAndDigital.stripeId)
+                    handleCheckout(stripePlans.printAndDigital.stripeId);
                   }}
-                  className="button button-primary-brand button-brand sue-brand w-button">
+                  className="button button-primary-brand button-brand sue-brand w-button"
+                >
                   <strong>Subscribe Now</strong>
                 </a>
-                <p className="caption-brand padding-top _50-opacity">Charged monthly / Cancel anytime</p>
+                <p className="caption-brand padding-top _50-opacity">
+                  Charged monthly / Cancel anytime
+                </p>
               </div>
               <div className="price-selector sue-background-brand">
                 <p>All benefits of Digital plus:</p>
@@ -125,28 +124,32 @@ const BlockSubscribeView: FC<BlockViewProps<BlockPubSubscribeProps>> = props => 
             </div>
             <div
               data-w-id="54e35276-2727-5cee-be3a-d591939b49ee"
-              className="price-selector ben-background-brand center-align sue-brand">
+              className="price-selector ben-background-brand center-align sue-brand"
+            >
               <h3>{stripePlans.digital.name}</h3>
               <p className="subtitle1-brand">
                 ${stripePlans.digital.price} / {stripePlans.digital.occurence}
               </p>
               <a
                 onClick={() => {
-                  handleCheckout(stripePlans.digital.stripeId)
+                  handleCheckout(stripePlans.digital.stripeId);
                 }}
-                className="button button-primary-brand button-brand sue-brand w-button">
+                className="button button-primary-brand button-brand sue-brand w-button"
+              >
                 <strong>Subscribe Now</strong>
               </a>
-              <p className="caption-brand padding-top _50-opacity">Charged monthly / Cancel anytime</p>
+              <p className="caption-brand padding-top _50-opacity">
+                Charged monthly / Cancel anytime
+              </p>
             </div>
             <div className="price-selector sue-background-brand">
               <p>
-                Unlimited access to all the journalism, photos and archives of{' '}
+                Unlimited access to all the journalism, photos and archives of{" "}
                 <Link href="/">
-                  <a target="_blank" style={{ cursor: 'pointer' }}>
+                  <a target="_blank" style={{ cursor: "pointer" }}>
                     semissourian.com
                   </a>
-                </Link>{' '}
+                </Link>{" "}
                 on any device
                 <br />
               </p>
@@ -179,16 +182,20 @@ const BlockSubscribeView: FC<BlockViewProps<BlockPubSubscribeProps>> = props => 
                   <br />
                 </h3>
                 <p className="subtitle1-brand">
-                  {formatToPrice(stripePlans.digitalPlus.price)} / {stripePlans.digitalPlus.occurence}
+                  {formatToPrice(stripePlans.digitalPlus.price)} /{" "}
+                  {stripePlans.digitalPlus.occurence}
                 </p>
                 <a
                   className="button button-secondary-brand button-brand sue-brand w-button"
                   onClick={() => {
-                    handleCheckout(stripePlans.digitalPlus.stripeId)
-                  }}>
+                    handleCheckout(stripePlans.digitalPlus.stripeId);
+                  }}
+                >
                   Subscribe now
                 </a>
-                <p className="caption-brand padding-top _50-opacity">Charged monthly / Cancel anytime</p>
+                <p className="caption-brand padding-top _50-opacity">
+                  Charged monthly / Cancel anytime
+                </p>
               </div>
               <div className="price-selector sue-background-brand">
                 <p>All benefits of Print and Digital:</p>
@@ -204,7 +211,7 @@ const BlockSubscribeView: FC<BlockViewProps<BlockPubSubscribeProps>> = props => 
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BlockSubscribeView
+export default BlockSubscribeView;

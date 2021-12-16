@@ -1,40 +1,76 @@
-import { FC } from 'react'
+import { useSession } from "next-auth/react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { FC } from "react";
 
-import { BlockViewProps } from '../../../../../utils/typescript-utils'
-import { useSession } from 'next-auth/react'
-import { BlockPubArticleHeaderProps, defaultArticleAccess } from '../blockPubArticleHeader/blockPubArticleHeader'
-import Link from 'next/link'
-import { stripePlans } from '../../../../../utils/publication-utils'
+import { stripePlans } from "../../../../../utils/publication-utils";
+import { postData } from "../../../../../utils/rest-utils";
+import { getStripe } from "../../../../../utils/stripe-utils";
+import { BlockViewProps } from "../../../../../utils/typescript-utils";
+import {
+  BlockPubArticleHeaderProps,
+  defaultArticleAccess,
+} from "../blockPubArticleHeader/blockPubArticleHeader";
 
-const BlockPaywallArticle: FC<BlockViewProps> = props => {
-  const { status, data: session } = useSession()
-  const subscriber = session?.user
+const BlockPaywallArticle: FC<BlockViewProps> = (props) => {
+  const { status, data: session } = useSession();
+  const subscriber = session?.user;
+  const router = useRouter();
 
   const articleBlock = props.listPageLocalBlocks?.items.find(
-    localBlock => localBlock.blockCategory === 'PubArticleHeader',
-  )
+    (localBlock) => localBlock.blockCategory === "PubArticleHeader",
+  );
 
-  if (!articleBlock) return null
+  const handleCheckout = async (priceId: string) => {
+    // TODO: there should be better UI for this case
+    if (status === "loading") {
+      return;
+    }
 
-  const articleBlockData = articleBlock.data ? (JSON.parse(articleBlock.data) as BlockPubArticleHeaderProps) : null
-  const articleAccess = articleBlockData?.articleAccess || defaultArticleAccess
+    // User already has a subscription
+    if (subscriber?.stripeSubscriptions?.length) {
+      return router.push("/account");
+    }
 
-  console.log('props', props)
-  console.log('articleBlockData', articleBlockData)
-  console.log('articleAccess', articleAccess)
-  console.log('status', status)
+    // Subcribe the user
+    try {
+      const { sessionId, accountId } = await postData({
+        url: "/api/create-checkout-session",
+        data: { price: priceId },
+      });
+      const stripe = await getStripe(accountId);
+      stripe.redirectToCheckout({ sessionId });
+    } catch (error) {
+      return alert(error);
+    }
+  };
+
+  if (!articleBlock) return null;
+
+  const articleBlockData = articleBlock.data
+    ? (JSON.parse(articleBlock.data) as BlockPubArticleHeaderProps)
+    : null;
+  const articleAccess = articleBlockData?.articleAccess || defaultArticleAccess;
 
   const showPaywall =
     // Article requires to be signed in to view
-    (status === 'unauthenticated' && articleAccess === 'signedIn') ||
+    (status === "unauthenticated" && articleAccess === "signedIn") ||
     // Article requires subcription to view
-    (status !== 'loading' && articleAccess === 'subscribed' && !subscriber?.stripeSubscriptions?.length)
+    (status !== "loading" &&
+      articleAccess === "subscribed" &&
+      !subscriber?.stripeSubscriptions?.length);
 
   return showPaywall ? (
-    <div data-w-id="8f1508eb-ea28-64b0-e291-f375ac043e0e" className="paywall-overlay" style={{ display: 'flex' }}>
+    <div
+      data-w-id="8f1508eb-ea28-64b0-e291-f375ac043e0e"
+      className="paywall-overlay"
+      style={{ display: "flex" }}
+    >
       <div className="div-block-26 sue-background-brand center-align">
         <div className="popup-topbar">
-          <p className="center-align no-margin qui-brand">Subscribe to continue reading, Already a subscriber?</p>
+          <p className="center-align no-margin qui-brand">
+            Subscribe to continue reading, Already a subscriber?
+          </p>
           <div className="_10px"></div>
           <Link href="/sign-in">
             <a>Sign In</a>
@@ -56,23 +92,32 @@ const BlockPaywallArticle: FC<BlockViewProps> = props => {
               </h6>
             </div>
             <div className="price-selector ben-background-brand center-align sue-brand">
-              <h2 className="h2-brand responsive">{stripePlans.digital.name}</h2>
+              <h2 className="h2-brand responsive">
+                {stripePlans.digital.name}
+              </h2>
               <p className="subtitle1-brand">
                 ${stripePlans.digital.price} / {stripePlans.digital.occurence}
               </p>
-              <Link href={{ pathname: '/checkout', query: { priceId: stripePlans.digital.stripeId } }}>
-                <a className="button-primary-brand button-brand large w-button">Subscribe Now</a>
-              </Link>
-              <p className="caption-brand padding-top _50-opacity">Charged monthly / Cancel anytime</p>
+              <a
+                className="button-primary-brand button-brand large w-button"
+                onClick={() => {
+                  handleCheckout(stripePlans.digital.stripeId);
+                }}
+              >
+                Subscribe Now
+              </a>
+              <p className="caption-brand padding-top _50-opacity">
+                Charged monthly / Cancel anytime
+              </p>
             </div>
             <div className="price-selector sue-background-brand">
               <p>
-                Unlimited access to all the journalism, photos and archives of{' '}
+                Unlimited access to all the journalism, photos and archives of{" "}
                 <Link href="/">
                   <a target="_blank" rel="noreferrer">
                     semissourian.com
                   </a>
-                </Link>{' '}
+                </Link>{" "}
                 on any device
                 <br />
               </p>
@@ -104,7 +149,7 @@ const BlockPaywallArticle: FC<BlockViewProps> = props => {
       </div>
       <div className="bg ali-background-brand opacity-80"></div>
     </div>
-  ) : null
-}
+  ) : null;
+};
 
-export default BlockPaywallArticle
+export default BlockPaywallArticle;
