@@ -159,7 +159,7 @@ const BlockPubAccountView: FC<BlockViewProps> = () => {
                   <div className="input-group roy-border-brand">
                     <div className="input-group-item-left">
                       <div>
-                        {formatToPrice((priceInCents || 0) * 100)} per{" "}
+                        {formatToPrice((priceInCents || 0) / 100)} per{" "}
                         {interval}
                       </div>
                     </div>
