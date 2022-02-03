@@ -4,107 +4,18 @@ import { FC } from 'react'
 
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 import Image from '../../../Image'
-import { BlockPubArticleHeaderProps } from '../blockPubArticleHeader/blockPubArticleHeader'
-import { BlockPubAuthorOverviewDataProps } from '../blockPubAuthorOverview/blockPubAuthorOverview'
+import { BlockPubSectionRelatedArticlesCustomPageData } from './blockPubSectionRelatedArticles'
 
-type HeroArticleData = {
-  date: Date
-  title: string | undefined
-  summary: string | undefined
-  day: string | number
-  year: string | number
-  month: string | number
-  src: string
-  href: string
-  youtubeLink: string | undefined
-  authorName: string | undefined
-  authorPicture: string | undefined
-  authorHref: string | undefined
-  byline: string | undefined
-  authorPosition: string | undefined
-}
+const BlockPubSectionRelatedArticlesView: FC<
+  BlockViewProps<{
+    ShapeOfCustomPropsDerivedFromPageData: BlockPubSectionRelatedArticlesCustomPageData
+  }>
+> = props => {
+  const { articlesBySection, sectionName } = props.blockCustomData
 
-const BlockPubSectionRelatedArticlesView: FC<BlockViewProps> = props => {
-  const sectionBlock = props?.listPageLocalBlocks?.items?.find(block => block.blockCategory === 'PubSectionMain')
-
-  if (!sectionBlock) {
+  if (!articlesBySection?.length || !sectionName) {
     return null
   }
-
-  // in BlockPubSectionTopStories, we return the first 5 articles that are top stories
-  // since we don't want those stories to be repeated, we filter out the 5 top stories in the section
-  let topStoryCount = 0
-
-  const articlesBySection = sectionBlock.listExternalBlocks?.items?.reduce(
-    (tot: HeroArticleData[], block): HeroArticleData[] => {
-      if (block.blockCategory === 'PubArticleHeader' && block.data) {
-        const data = JSON.parse(block.data) as BlockPubArticleHeaderProps
-        if (data?.section === sectionBlock.id && block.releaseDate && data.image) {
-          // If the article is a top story and it is the first 5 ones, it will be displayed in BlockPubSectionStoriesView block
-          // so skip it.
-          if (data.externalDisplay === 'topStory' && topStoryCount < 5) {
-            topStoryCount = topStoryCount + 1
-            return tot
-          } else {
-            const date = new Date(block.releaseDate)
-            const day = date.getUTCDate()
-            const year = date.getUTCFullYear()
-            const month = date.getUTCMonth() //months from 1-12
-
-            let authorName
-            let authorPicture
-            let authorPosition
-            let authorHref
-
-            if (data.authors?.length) {
-              const authorBlock = block.listExternalBlocks?.items.find(
-                externalBlock => externalBlock.id === data.authors?.[0],
-              )
-              const authorBlockData = authorBlock?.data
-                ? (JSON.parse(authorBlock.data) as BlockPubAuthorOverviewDataProps)
-                : null
-
-              authorName = authorBlockData?.name
-              authorPicture = authorBlockData?.picture
-              authorPosition = authorBlockData?.position
-              authorHref = authorBlock?.getPage?.slug
-            }
-
-            const href = block.getPage?.slug
-
-            if (href) {
-              return [
-                ...tot,
-                {
-                  date,
-                  title: data.title,
-                  summary: data.summary,
-                  youtubeLink: data.youtubeLink,
-                  day,
-                  year,
-                  month,
-                  src: data.image,
-                  href,
-                  authorName,
-                  authorPicture,
-                  authorHref,
-                  byline: data.byline,
-                  authorPosition,
-                },
-              ]
-            } else return tot
-          }
-        } else return tot
-      } else return tot
-    },
-    [],
-  )
-
-  if (!articlesBySection?.length) {
-    return null
-  }
-
-  const sectionName = sectionBlock.data ? JSON.parse(sectionBlock.data)?.name : ''
 
   return (
     <div className="section-related-stories section wf-section" style={{ backgroundColor: '#fff' }}>
@@ -122,19 +33,15 @@ const BlockPubSectionRelatedArticlesView: FC<BlockViewProps> = props => {
                       <Box
                         css={{
                           width: '100% !important',
-                          '& > div': {
-                            paddingBottom: '60%',
-                            width: '100%',
-                            height: '100%',
-                          },
                         }}>
                         <Image
                           alt={el.title}
-                          layout="fill"
-                          objectFit="cover"
+                          layout="responsive"
+                          width={el.imageWidth}
+                          height={el.imageHeight}
                           asset={{
                             public: true,
-                            key: el.src,
+                            key: el.imageSrc,
                           }}
                         />
                       </Box>

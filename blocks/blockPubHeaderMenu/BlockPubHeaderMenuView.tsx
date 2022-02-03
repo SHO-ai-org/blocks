@@ -5,14 +5,13 @@ import { FC, useEffect, useRef, useState } from 'react'
 import OutsideClickHandler from 'react-outside-click-handler'
 
 import { BlockTemplateViewProps } from '../../../../../utils/typescript-utils'
-import { BlockPubSectionMainViewProps } from '../blockPubSectionMain/blockPubSectionMain'
+import { PubHeaderMenuCustomPageData } from './blockPubHeaderMenu'
 
-type SectionData = {
-  sectionName: string
-  href: string
-}
-
-const BlockPubHeaderMenuView: FC<BlockTemplateViewProps> = props => {
+const BlockPubHeaderMenuView: FC<
+  BlockTemplateViewProps<{
+    ShapeOfCustomPropsDerivedFromPageData: PubHeaderMenuCustomPageData
+  }>
+> = props => {
   const { status, data: session } = useSession()
   const subscriber = session?.user
   const [isOpen, setIsOpen] = useState(false)
@@ -23,6 +22,7 @@ const BlockPubHeaderMenuView: FC<BlockTemplateViewProps> = props => {
   const [subscriptionSuccessShown, setSubscriptionSuccessShown] = useState(false)
   const [subscriptionSuccessModalOpen, setSubscriptionSuccessModalOpen] = useState(false)
   const router = useRouter()
+  const { sections, sectionsInHeader } = props.blockCustomData
 
   useEffect(() => {
     if (router.query?.error === 'Verification' && !verificationLinkErrorShown) {
@@ -34,27 +34,6 @@ const BlockPubHeaderMenuView: FC<BlockTemplateViewProps> = props => {
       setSubscriptionSuccessModalOpen(true)
     }
   }, [verificationLinkErrorShown, subscriptionSuccessShown, router])
-
-  const sections: SectionData[] = []
-  const topSections: SectionData[] = []
-
-  props?.listPageAdditionalBlocks?.items?.forEach(block => {
-    if (block.blockCategory === 'PubSectionMain' && block.data) {
-      const sectionData = JSON.parse(block.data) as BlockPubSectionMainViewProps
-      const { featuredInNav, name } = sectionData
-      const slug = block.getPage?.slug
-      if (name && slug) {
-        const section = {
-          href: slug,
-          sectionName: name,
-        }
-        sections.push(section)
-        if (featuredInNav) {
-          topSections.push(section)
-        }
-      }
-    }
-  })
 
   const toggle = e => {
     e.stopPropagation()
@@ -68,8 +47,6 @@ const BlockPubHeaderMenuView: FC<BlockTemplateViewProps> = props => {
       setIsOpen(!isOpen)
     }
   }
-
-  const sectionsInHeader = topSections?.slice(0, 2)
 
   return (
     <>
@@ -95,7 +72,7 @@ const BlockPubHeaderMenuView: FC<BlockTemplateViewProps> = props => {
           <div className="sue-background-brand wf-section">
             <div className="main-container edity">
               <div className="logo-bar edit">
-                <div className="navbar-categories button-brand">
+                <div className="button-brand">
                   <div className="div-block-18">
                     <div
                       data-animation="over-left"
@@ -130,20 +107,53 @@ const BlockPubHeaderMenuView: FC<BlockTemplateViewProps> = props => {
                           onClick={e => {
                             setIsDrawerOpen(false)
                           }}>
-                          <img
-                            style={{
-                              opacity: isDrawerOpen ? '1' : '0',
-                              WebkitUserSelect: 'none',
-                              MozUserSelect: 'none',
-                            }}
-                            data-w-id="71a52fc3-299c-c643-e1e9-d5e5ee19908a"
-                            src="/semissourian/images/Icon-Cross.svg"
-                            alt=""
-                            className="nav-close-cross"
-                          />
-                          <div className="nav-menu-inner logo-horizontallockup-background-color">
+                          <div
+                            className="nav-menu-inner logo-horizontallockup-background-color"
+                            style={{ overflowY: 'auto' }}>
+                            <img
+                              style={{
+                                opacity: isDrawerOpen ? '1' : '0',
+                                WebkitUserSelect: 'none',
+                                MozUserSelect: 'none',
+                                cursor: 'pointer',
+                              }}
+                              onClick={e => {
+                                setIsDrawerOpen(false)
+                              }}
+                              data-w-id="71a52fc3-299c-c643-e1e9-d5e5ee19908a"
+                              src="/semissourian/images/Icon-Cross.svg"
+                              alt=""
+                              // className="nav-close-cross"
+                            />
                             <div className="button-brand edit-new">
-                              <div className="_40px"></div>
+                              <div style={{ marginTop: 24 }} />
+                              {status === 'unauthenticated' && (
+                                <div>
+                                  <Link href="/sign-in" passHref>
+                                    <a
+                                      className="button-brand button button-secondary-brand w-button"
+                                      style={{ cursor: 'pointer' }}>
+                                      Sign&nbsp;in
+                                    </a>
+                                  </Link>
+                                </div>
+                              )}
+                              {!!(
+                                status !== 'loading' &&
+                                !subscriber?.stripeSubscriptions?.length &&
+                                !subscriber?.legacySubscription
+                              ) && (
+                                <div style={{ marginTop: 14, marginBottom: 14 }}>
+                                  <Link href="/subscribe" passHref>
+                                    <a
+                                      className="button-brand button-primary-brand w-button"
+                                      style={{ cursor: 'pointer' }}>
+                                      Subscribe
+                                    </a>
+                                  </Link>
+                                </div>
+                              )}
+
                               <h4>Sections</h4>
                               <div className="w-dyn-list">
                                 <div role="list" className="w-dyn-items">
@@ -160,19 +170,74 @@ const BlockPubHeaderMenuView: FC<BlockTemplateViewProps> = props => {
                                   ))}
                                 </div>
                               </div>
-                            </div>
-                            <div className="nav-menu-bottom">
-                              <div className="w-layout-grid vertical-menu-grid button-brand">
-                                <Link href="/privacy-policy/" passHref>
-                                  <a className="sue-brand opacity-50" style={{ cursor: 'pointer' }}>
-                                    Privacy Policy
-                                  </a>
-                                </Link>
+
+                              <h4 style={{ marginTop: 19 }}>Links</h4>
+                              <div>
                                 <a
-                                  href="mailto:support@semissourian.com?subject=Support Request from SEMissourian.com"
-                                  className="sue-brand opacity-50">
-                                  Customer Service
+                                  href="https://www.semissourian.com/classifieds"
+                                  target="_blank"
+                                  className="roy-brand body1-brand"
+                                  rel="noreferrer">
+                                  Classifieds
                                 </a>
+                              </div>
+                              <div>
+                                <a
+                                  href="https://www.semohousehunter.com/"
+                                  target="_blank"
+                                  className="roy-brand body1-brand"
+                                  rel="noreferrer">
+                                  Homes
+                                </a>
+                              </div>
+                              <div>
+                                <a
+                                  href="https://semo.jobs/"
+                                  target="_blank"
+                                  className="roy-brand body1-brand"
+                                  rel="noreferrer">
+                                  Jobs
+                                </a>
+                              </div>
+
+                              <h4 style={{ marginTop: 19 }}>Connect</h4>
+                              <div>
+                                <a
+                                  href="https://www.facebook.com/semissourian/"
+                                  target="_blank"
+                                  className="roy-brand body1-brand"
+                                  rel="noreferrer">
+                                  Facebook
+                                </a>
+                              </div>
+                              <div>
+                                <a href="mailto:support@semissourian.com" className="roy-brand body1-brand">
+                                  Email
+                                </a>
+                              </div>
+                              <div>
+                                <a
+                                  href="https://twitter.com/semissourian?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                                  target="_blank"
+                                  className="roy-brand body1-brand"
+                                  rel="noreferrer">
+                                  Twitter
+                                </a>
+                              </div>
+
+                              <div className="nav-menu-bottom" style={{ marginTop: 45 }}>
+                                <div className="w-layout-grid vertical-menu-grid button-brand">
+                                  <Link href="/privacy-policy/" passHref>
+                                    <a className="sue-brand opacity-50" style={{ cursor: 'pointer' }}>
+                                      Privacy Policy
+                                    </a>
+                                  </Link>
+                                  <a
+                                    href="mailto:support@semissourian.com?subject=Support Request from SEMissourian.com"
+                                    className="sue-brand opacity-50">
+                                    Customer Service
+                                  </a>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -187,7 +252,12 @@ const BlockPubHeaderMenuView: FC<BlockTemplateViewProps> = props => {
                         <div className="icon ben-brand edit-dd w-embed">
                           <span
                             className="material-icons-outlined"
-                            style={{ fontSize: '30px', WebkitUserSelect: 'none', MozUserSelect: 'none' }}>
+                            style={{
+                              fontSize: '30px',
+                              WebkitUserSelect: 'none',
+                              MozUserSelect: 'none',
+                              transform: 'translateX(-2px)',
+                            }}>
                             menu
                           </span>
                         </div>
@@ -196,36 +266,38 @@ const BlockPubHeaderMenuView: FC<BlockTemplateViewProps> = props => {
                           className="menu-button w-nav-button"></div>
                       </div>
                     </div>
-                    <div className="_20px"></div>
-                    <div>
-                      <Link href="/latest-articles/">
-                        <a className="margin-right button-brand" style={{ cursor: 'pointer' }}>
-                          Latest
-                        </a>
-                      </Link>
-                    </div>
-                    {sectionsInHeader?.map(el => (
-                      <div className="w-dyn-list" key={el.href}>
-                        <div role="list" className="w-dyn-items">
-                          <div role="listitem" className="w-dyn-item">
-                            <div>
-                              <Link href={el.href}>
-                                <a className="margin-right button-brand" style={{ cursor: 'pointer' }}>
-                                  {el.sectionName}
-                                </a>
-                              </Link>
+                    <div style={{ display: 'flex' }} className="header-menu-links">
+                      <div className="_20px"></div>
+                      <div>
+                        <Link href="/latest-articles/">
+                          <a className="margin-right button-brand" style={{ cursor: 'pointer' }}>
+                            Latest
+                          </a>
+                        </Link>
+                      </div>
+                      {sectionsInHeader?.map(el => (
+                        <div className="w-dyn-list" key={el.href}>
+                          <div role="list" className="w-dyn-items">
+                            <div role="listitem" className="w-dyn-item">
+                              <div>
+                                <Link href={el.href}>
+                                  <a className="margin-right button-brand" style={{ cursor: 'pointer' }}>
+                                    {el.sectionName}
+                                  </a>
+                                </Link>
+                              </div>
                             </div>
                           </div>
                         </div>
+                      ))}
+                      <div
+                        data-w-id="71a52fc3-299c-c643-e1e9-d5e5ee1990bd"
+                        onClick={toggle}
+                        style={{ cursor: 'pointer', WebkitUserSelect: 'none', MozUserSelect: 'none' }}>
+                        <a className="margin-right button-brand" style={{ whiteSpace: 'nowrap' }}>
+                          More +
+                        </a>
                       </div>
-                    ))}
-                    <div
-                      data-w-id="71a52fc3-299c-c643-e1e9-d5e5ee1990bd"
-                      onClick={toggle}
-                      style={{ cursor: 'pointer', WebkitUserSelect: 'none', MozUserSelect: 'none' }}>
-                      <a className="margin-right button-brand" style={{ whiteSpace: 'nowrap' }}>
-                        More +
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -235,7 +307,7 @@ const BlockPubHeaderMenuView: FC<BlockTemplateViewProps> = props => {
                       <div className="_10padding">
                         <div className="div-block-17">
                           <div className="horizontal">
-                            <div className="logo-dark-horizontallockup-background-image-url-brand"></div>
+                            <div className="logo-dark-horizontallockup-background-image-url-brand hide-below-tablet"></div>
                           </div>
                           <div className="vertical">
                             <div className="logo-dark-verticallockup-background-image-url-brand"></div>
@@ -245,11 +317,17 @@ const BlockPubHeaderMenuView: FC<BlockTemplateViewProps> = props => {
                     </div>
                   </a>
                 </Link>
-                <div className="social-links">
+                <div
+                  className="social-links"
+                  style={{
+                    display: 'flex',
+                    flexFlow: 'row nowrap',
+                    alignItems: 'center',
+                  }}>
                   {status === 'unauthenticated' && (
                     <Link href="/sign-in" passHref>
                       <a className="margin-right button-brand" style={{ cursor: 'pointer' }}>
-                        Sign in
+                        Sign&nbsp;in
                       </a>
                     </Link>
                   )}
@@ -268,7 +346,7 @@ const BlockPubHeaderMenuView: FC<BlockTemplateViewProps> = props => {
                     <div className="margin-left" style={{ marginLeft: '15px', display: 'flex', cursor: 'pointer' }}>
                       <Link href="/account/" passHref>
                         <a style={{ display: 'flex', cursor: 'pointer' }}>
-                          <span className="button-brand" style={{ marginRight: 7 }}>
+                          <span className="button-brand hide-below-tablet" style={{ marginRight: 7 }}>
                             manage Account
                           </span>
                           <span className="w-inline-block">

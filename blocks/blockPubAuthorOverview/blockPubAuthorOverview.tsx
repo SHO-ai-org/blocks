@@ -8,12 +8,16 @@ export type BlockPubAuthorOverviewDataProps = {
   position?: string
   bio?: string
   picture?: string
+  pictureWidth?: number
+  pictureHeight?: number
   email?: string
   twitter?: string
   linkedIn?: string
 }
 
-export const blockPubAuthorOverview: BlockProps<BlockPubAuthorOverviewDataProps> = {
+export const blockPubAuthorOverview: BlockProps<{
+  ShapeOfBlockDataInDB: BlockPubAuthorOverviewDataProps
+}> = {
   id: 'blockPubAuthorOverview',
   name: 'Author Overview',
   viewComponent: View,

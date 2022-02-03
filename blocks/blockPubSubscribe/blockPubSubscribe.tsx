@@ -19,7 +19,7 @@ export type BlockPubSubscribeProps = {
   }[]
 }
 
-export const blockPubSubscribe: BlockProps<BlockPubSubscribeProps> = {
+export const blockPubSubscribe: BlockProps<{ ShapeOfBlockDataInDB: BlockPubSubscribeProps }> = {
   id: 'blockPubSubscribe',
   name: 'Publication Subscription',
   viewComponent: View,

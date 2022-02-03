@@ -7,7 +7,9 @@ export type BlockPubTagHeaderProps = {
   name?: string
 }
 
-export const blockPubTagHeader: BlockProps<BlockPubTagHeaderProps> = {
+export const blockPubTagHeader: BlockProps<{
+  ShapeOfBlockDataInDB: BlockPubTagHeaderProps
+}> = {
   id: 'blockPubTagHeader',
   name: 'Tag Header',
   viewComponent: View,

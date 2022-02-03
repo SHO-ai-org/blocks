@@ -5,7 +5,11 @@ import { BlockViewProps } from '../../../../../utils/typescript-utils'
 import Image from '../../../Image'
 import { BlockPubAuthorOverviewDataProps } from './blockPubAuthorOverview'
 
-const BlockPubAuthorOverviewView: FC<BlockViewProps<BlockPubAuthorOverviewDataProps>> = ({ data }) => (
+const BlockPubAuthorOverviewView: FC<
+  BlockViewProps<{
+    ShapeOfBlockDataInDB: BlockPubAuthorOverviewDataProps
+  }>
+> = ({ data }) => (
   <div id="Author-Overview" className="section ben-background-brand sue-brand wf-section">
     <div className="main-container author-container">
       <div className="autor-row">

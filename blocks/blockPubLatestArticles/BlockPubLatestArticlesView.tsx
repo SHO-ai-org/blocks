@@ -5,82 +5,14 @@ import { FC } from 'react'
 import { monthNames } from '../../../../../utils/date-utils'
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 import Image from '../../../Image'
-import { BlockPubArticleHeaderProps } from '../blockPubArticleHeader/blockPubArticleHeader'
-import { BlockPubAuthorOverviewDataProps } from '../blockPubAuthorOverview/blockPubAuthorOverview'
-import { BlockPubSectionMainViewProps } from '../blockPubSectionMain/blockPubSectionMain'
+import { BlockPubLatestArticlesHeroCustomPageData } from './blockPubLatestArticles'
 
-type HeroArticleData = {
-  date: Date
-  title: string | undefined
-  day: string | number
-  year: string | number
-  month: string | number
-  src: string | undefined
-  href: string
-  youtubeLink: string | undefined
-  summary: string | undefined
-  sectionName: string | undefined
-  sectionHref: string | null | undefined
-  authorName: string | undefined
-  authorPosition: string | undefined
-  authorhref: string | undefined
-  authorPicture: string | undefined
-  byline: string | undefined
-}
-
-const BlockPubLatestArticlesView: FC<BlockViewProps> = props => {
-  const latestArticles = props?.listPageAdditionalBlocks?.items?.reduce(
-    (tot: HeroArticleData[], block): HeroArticleData[] => {
-      if (block.blockCategory === 'PubArticleHeader' && block.data && block.releaseDate) {
-        const blockArticleData = JSON.parse(block.data) as BlockPubArticleHeaderProps
-        const date = new Date(block?.releaseDate)
-        const day = date.getUTCDate()
-        const year = date.getUTCFullYear()
-        const month = date.getUTCMonth() //months from 1-12
-
-        const blockAuthor = block.listExternalBlocks?.items?.find(
-          externalBlock => externalBlock.blockCategory === 'PubAuthorOverview',
-        )
-        const blockAuthorData = blockAuthor?.data
-          ? (JSON.parse(blockAuthor.data) as BlockPubAuthorOverviewDataProps)
-          : null
-
-        const blockSection = block.listExternalBlocks?.items?.find(
-          externalBlock => externalBlock.blockCategory === 'PubSectionMain',
-        )
-        const blockSectionData = blockSection?.data
-          ? (JSON.parse(blockSection.data) as BlockPubSectionMainViewProps)
-          : null
-        const href = block.getPage?.slug
-
-        if (href) {
-          return [
-            ...tot,
-            {
-              date,
-              title: blockArticleData.title,
-              day,
-              year,
-              month,
-              src: blockArticleData.image,
-              summary: blockArticleData.summary,
-              youtubeLink: blockArticleData.youtubeLink,
-              href,
-              sectionName: blockSectionData?.name,
-              sectionHref: blockSection?.getPage?.slug,
-              authorName: blockAuthorData?.name,
-              authorPosition: blockAuthorData?.position,
-              authorhref: blockAuthor?.getPage?.slug,
-              authorPicture: blockAuthorData?.picture,
-              byline: blockArticleData.byline,
-            },
-          ]
-        } else return tot
-      } else return tot
-    },
-    [],
-  )
-
+const BlockPubLatestArticlesView: FC<
+  BlockViewProps<{
+    ShapeOfCustomPropsDerivedFromPageData: BlockPubLatestArticlesHeroCustomPageData
+  }>
+> = props => {
+  const { latestArticles } = props.blockCustomData
   return (
     <div className="home-section section wf-section" style={{ backgroundColor: 'white' }}>
       <div className="main-container">
@@ -133,7 +65,7 @@ const BlockPubLatestArticlesView: FC<BlockViewProps> = props => {
                             <div className="_5px"></div>
                             <div className="overline-brand no-margin"> | </div>
                             <div className="_5px"></div>
-                            <div className="caption-brand no-margin cal-brand">
+                            <div className="overline-brand opacity-50 no-margin">
                               {monthNames[el.month]} {el.day}, {el.year}
                             </div>
                           </div>

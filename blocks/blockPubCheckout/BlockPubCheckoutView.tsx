@@ -11,7 +11,7 @@
 // import SemissourianLoader from '../../../SemissourianLoader'
 // import { BlockPubCheckoutProps } from './blockPubCheckout'
 
-const BlockPubCheckoutView = () => null;
+const BlockPubCheckoutView = () => null
 
 // const BlockPubCheckoutView: FC<BlockViewProps<BlockPubCheckoutProps>> = () => {
 //   const router = useRouter()
@@ -249,4 +249,4 @@ const BlockPubCheckoutView = () => null;
 //   )
 // }
 
-export default BlockPubCheckoutView;
+export default BlockPubCheckoutView

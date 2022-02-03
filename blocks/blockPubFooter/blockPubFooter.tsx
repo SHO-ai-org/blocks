@@ -1,15 +1,27 @@
 import React from 'react'
 
 import { BlockTemplateProps } from '../../../../../utils/typescript-utils'
-import View from './BlockFooterView'
+import View from './BlockPubFooterView'
 
-export const blockFooter: BlockTemplateProps = {
-  id: 'blockFooter',
+export type BlockTemplateSectionData = {
+  href: string
+  sectionName: string
+}
+
+export type BlockTemplateCustomPageData = {
+  sections: BlockTemplateSectionData[] | undefined
+}
+
+// TODO: didn't finsish refactoring because used as template block
+export const blockPubFooter: BlockTemplateProps<{
+  ShapeOfCustomPropsDerivedFromPageData: BlockTemplateCustomPageData
+}> = {
+  id: 'blockPubFooter',
   name: 'Footer',
   viewComponent: View,
   editComponent: View,
   IconComponent: <div>Icon</div>,
-  description: 'Footer content',
+  description: 'Publication Footer content',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],
   tags: [''],

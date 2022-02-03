@@ -1,45 +1,36 @@
+import { DropdownExposed, useFormData } from '@sho-ai-org/pattern-library'
 import { FC } from 'react'
-import { BlockEditProps } from '../../../../../utils/typescript-utils'
-import { useFormData, DropdownExposed } from '@sho-ai-org/pattern-library'
-import { BlockPubArticlesBySectionProps } from './blockPubArticlesBySection'
 
-const BlockPubArticlesBySectionEdit: FC<BlockEditProps<BlockPubArticlesBySectionProps>> = props => {
+import { BlockEditProps } from '../../../../../utils/typescript-utils'
+import { BlockPubArticlesBySectionProps, PubArticlesBySectionCustomDataProps } from './blockPubArticlesBySection'
+
+const BlockPubArticlesBySectionEdit: FC<
+  BlockEditProps<{
+    ShapeOfBlockDataInDB: BlockPubArticlesBySectionProps
+    ShapeOfCustomPropsDerivedFromPageData: PubArticlesBySectionCustomDataProps
+  }>
+> = props => {
   const { formData, updateFormDataValue } = useFormData({
     section: props?.data?.section,
   })
+  const { sectionDropdownList } = props.blockCustomData
 
   const onUpdateDropdown = ({ key }: { key: string }): void => {
-    props.onUpdateBlock({
-      variables: {
-        updateBlockInput: {
-          id: props.block.id,
-          data: JSON.stringify({
-            section: key,
-          }),
+    if (!props.onUpdateBlock) {
+      console.error('onUpdateBlock function is not passed to edit mode block')
+    } else {
+      props.onUpdateBlock({
+        variables: {
+          updateBlockInput: {
+            id: props.block.id,
+            data: JSON.stringify({
+              section: key,
+            }),
+          },
         },
-      },
-    })
+      })
+    }
   }
-
-  const sectionDropdownList = props.listPageAdditionalBlocks?.items?.reduce(
-    (tot: { key: string; label: string }[], block) => {
-      if (block.blockCategory === 'PubSectionMain') {
-        const label = block.data ? JSON.parse(block.data)?.name : null
-        if (label) {
-          return [
-            ...tot,
-            {
-              key: block.id,
-              label,
-            },
-          ]
-        } else {
-          return tot
-        }
-      } else return tot
-    },
-    [],
-  )
 
   return (
     <div>
@@ -47,7 +38,7 @@ const BlockPubArticlesBySectionEdit: FC<BlockEditProps<BlockPubArticlesBySection
         <DropdownExposed
           LabelText="Choose Section"
           value={formData.section}
-          onValueChange={value => {
+          onValueChange={(event, value) => {
             onUpdateDropdown(value)
             updateFormDataValue({ name: 'section', value })
           }}

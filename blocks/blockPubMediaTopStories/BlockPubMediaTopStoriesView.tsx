@@ -1,78 +1,25 @@
-import { FC } from 'react'
-import { monthNames } from '../../../../../utils/date-utils'
-import Link from 'next/link'
-import Image from '../../../Image'
 import { Box } from '@sho-ai-org/pattern-library'
+import Link from 'next/link'
+import { FC } from 'react'
 
+import { monthNames } from '../../../../../utils/date-utils'
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
-import { BlockPubArticleHeaderProps } from '../blockPubArticleHeader/blockPubArticleHeader'
-import { BlockPubSectionMainViewProps } from '../blockPubSectionMain/blockPubSectionMain'
+import Image from '../../../Image'
+import { BlockPubMediaTopStorieCustomPageData } from './blockPubMediaTopStories'
 
-type HeroArticleData = {
-  date: Date
-  title: string | undefined
-  summary: string | undefined
-  day: string | number
-  year: string | number
-  month: string | number
-  src: string | undefined
-  href: string
-  sectionName: string | undefined
-  sectionHref: string | undefined
-}
+const BlockPubMediaTopStoriesView: FC<
+  BlockViewProps<{
+    ShapeOfCustomPropsDerivedFromPageData: BlockPubMediaTopStorieCustomPageData
+  }>
+> = props => {
+  const { topStoryArticlesWithYoutubeLink } = props.blockCustomData
 
-const BlockPubMediaTopStoriesView: FC<BlockViewProps> = props => {
-  const topStoryArticles = props?.listPageAdditionalBlocks?.items?.reduce(
-    (tot: HeroArticleData[], block): HeroArticleData[] => {
-      if (block.blockCategory === 'PubArticleHeader' && block.data) {
-        const data = JSON.parse(block.data) as BlockPubArticleHeaderProps
-        if (data?.externalDisplay === 'topStory' && block.releaseDate && data.youtubeLink) {
-          const date = new Date(block.releaseDate)
-          const day = date.getUTCDate()
-          const year = date.getUTCFullYear()
-          const month = date.getUTCMonth() //months from 1-12
-
-          const blockSection = block.listExternalBlocks?.items?.find(
-            externalBlock => externalBlock.blockCategory === 'PubSectionMain',
-          )
-          const blockSectionData = blockSection?.data
-            ? (JSON.parse(blockSection.data) as BlockPubSectionMainViewProps)
-            : null
-
-          const sectionName = blockSectionData?.name
-          const sectionHref = blockSection?.getPage?.slug
-          const href = block.getPage?.slug
-          const src = data.image
-
-          if (href && src) {
-            return [
-              ...tot,
-              {
-                date,
-                title: data.title,
-                summary: data.summary,
-                day,
-                year,
-                month,
-                src,
-                href,
-                sectionName,
-                sectionHref: sectionHref,
-              },
-            ]
-          } else return tot
-        } else return tot
-      } else return tot
-    },
-    [],
-  )
-
-  if (!topStoryArticles?.length) {
+  if (!topStoryArticlesWithYoutubeLink?.length) {
     return null
   }
 
-  const featuredArticle = topStoryArticles[0]
-  const latestVideoArticles = topStoryArticles.slice(1, 4)
+  const featuredArticle = topStoryArticlesWithYoutubeLink[0]
+  const latestVideoArticles = topStoryArticlesWithYoutubeLink.slice(1, 4)
 
   return (
     <div className="home-media section ota-background-brand sue-brand wf-section">
@@ -127,7 +74,7 @@ const BlockPubMediaTopStoriesView: FC<BlockViewProps> = props => {
                             <div className="_5px"></div>
                             <div className="overline-brand no-margin"> | </div>
                             <div className="_5px"></div>
-                            <div className="caption-brand no-margin cal-brand">
+                            <div className="overline-brand opacity-50 no-margin">
                               {monthNames[featuredArticle.month]} {featuredArticle.day}, {featuredArticle.year}
                             </div>
                           </div>
@@ -197,7 +144,7 @@ const BlockPubMediaTopStoriesView: FC<BlockViewProps> = props => {
                                   <div className="_5px"></div>
                                   <div className="overline-brand no-margin"> | </div>
                                   <div className="_5px"></div>
-                                  <div className="caption-brand no-margin cal-brand">
+                                  <div className="overline-brand opacity-50 no-margin">
                                     {monthNames[el.month]} {el.day}, {el.year}
                                   </div>
                                 </div>

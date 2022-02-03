@@ -3,7 +3,11 @@ import { FC } from 'react'
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 import { BlockPubTagHeaderProps } from './blockPubTagHeader'
 
-const BlockPubTagHeaderView: FC<BlockViewProps<BlockPubTagHeaderProps>> = ({ data }) => (
+const BlockPubTagHeaderView: FC<
+  BlockViewProps<{
+    ShapeOfBlockDataInDB: BlockPubTagHeaderProps
+  }>
+> = ({ data }) => (
   <div className="tag-header section wf-section" style={{ backgroundColor: '#fff' }}>
     <div className="main-container">
       <div className="justify-content-center">

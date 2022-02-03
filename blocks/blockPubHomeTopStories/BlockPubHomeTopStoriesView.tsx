@@ -5,73 +5,18 @@ import { FC } from 'react'
 import { monthNames } from '../../../../../utils/date-utils'
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 import Image from '../../../Image'
-import { BlockPubArticleHeaderProps } from '../blockPubArticleHeader/blockPubArticleHeader'
-import { BlockPubSectionMainViewProps } from '../blockPubSectionMain/blockPubSectionMain'
+import { BlockPubHomeTopStoriesCustomPageData } from './blockPubHomeTopStories'
 
-type HeroArticleData = {
-  date: Date
-  title: string | undefined
-  summary: string | undefined
-  day: string | number
-  year: string | number
-  month: string | number
-  src: string | undefined
-  width: number | undefined
-  height: number | undefined
-  href: string
-  sectionName: string | undefined
-  sectionHref: string | undefined
-}
-
-const BlockPubHomeTopStoriesView: FC<BlockViewProps> = props => {
-  let topStoryArticles = props?.listPageAdditionalBlocks?.items?.reduce(
-    (tot: HeroArticleData[], block): HeroArticleData[] => {
-      if (block.blockCategory === 'PubArticleHeader' && block.data) {
-        const data = JSON.parse(block.data) as BlockPubArticleHeaderProps
-        if (data?.externalDisplay === 'topStory' && block.releaseDate && !data.youtubeLink) {
-          const date = new Date(block.releaseDate)
-          const day = date.getUTCDate()
-          const year = date.getUTCFullYear()
-          const month = date.getUTCMonth() //months from 1-12
-
-          const blockSection = block.listExternalBlocks?.items?.find(
-            externalBlock => externalBlock.blockCategory === 'PubSectionMain',
-          )
-          const blockSectionData = blockSection?.data
-            ? (JSON.parse(blockSection.data) as BlockPubSectionMainViewProps)
-            : null
-
-          const href = block.getPage?.slug
-
-          if (href) {
-            return [
-              ...tot,
-              {
-                date,
-                title: data.title,
-                summary: data.summary,
-                day,
-                year,
-                month,
-                src: data.image,
-                width: data.imageWidth,
-                height: data.imageHeight,
-                href,
-                sectionName: blockSectionData?.name,
-                sectionHref: blockSection?.getPage?.slug,
-              },
-            ]
-          } else return tot
-        } else return tot
-      } else return tot
-    },
-    [],
-  )
+const BlockPubHomeTopStoriesView: FC<
+  BlockViewProps<{
+    ShapeOfCustomPropsDerivedFromPageData: BlockPubHomeTopStoriesCustomPageData
+  }>
+> = props => {
+  const { topStoryArticles } = props.blockCustomData
 
   if (!topStoryArticles?.length) {
     return null
   }
-  topStoryArticles = topStoryArticles.reverse()
 
   const featuredArticle = topStoryArticles?.[0]
   const smallFeaturedArticles = topStoryArticles?.slice(1, 5)
@@ -130,7 +75,7 @@ const BlockPubHomeTopStoriesView: FC<BlockViewProps> = props => {
                                 <div className="_5px"></div>
                                 <div className="overline-brand no-margin"> | </div>
                                 <div className="_5px"></div>
-                                <div className="caption-brand no-margin cal-brand">
+                                <div className="overline-brand no-margin opacity-50">
                                   {monthNames[featuredArticle.month]} {featuredArticle.day}, {featuredArticle.year}
                                 </div>
                               </div>
@@ -141,7 +86,7 @@ const BlockPubHomeTopStoriesView: FC<BlockViewProps> = props => {
                           <a className="post-link-block w-inline-block" style={{ cursor: 'pointer' }}>
                             <h5>{featuredArticle.title}</h5>
                             <div className="body1-brand qui-brand no-margin">{featuredArticle.summary}</div>
-                            <div className="body1-brand dan-brand">Read more</div>
+                            <div className="body2-brand dan-brand">Read more</div>
                             <div className="_20px"></div>
                           </a>
                         </Link>
@@ -191,7 +136,7 @@ const BlockPubHomeTopStoriesView: FC<BlockViewProps> = props => {
                                     <div className="_5px"></div>
                                     <div className="overline-brand no-margin"> | </div>
                                     <div className="_5px"></div>
-                                    <div className="caption-brand no-margin cal-brand">
+                                    <div className="overline-brand opacity-50 no-margin">
                                       {monthNames[el.month]} {el.day}, {el.year}
                                     </div>
                                   </div>
@@ -237,7 +182,7 @@ const BlockPubHomeTopStoriesView: FC<BlockViewProps> = props => {
                                   <div className="_5px"></div>
                                   <div className="overline-brand no-margin"> | </div>
                                   <div className="_5px"></div>
-                                  <div className="caption-brand no-margin cal-brand">
+                                  <div className="overline-brand opacity-50 no-margin">
                                     {monthNames[el.month]} {el.day}, {el.year}
                                   </div>
                                 </div>
@@ -300,7 +245,7 @@ const BlockPubHomeTopStoriesView: FC<BlockViewProps> = props => {
                                   <div className="_5px"></div>
                                   <div className="overline-brand no-margin"> | </div>
                                   <div className="_5px"></div>
-                                  <div className="caption-brand no-margin cal-brand">
+                                  <div className="overline-brand opacity-50 no-margin">
                                     {monthNames[lastArticle.month]} {lastArticle.day}, {lastArticle.year}
                                   </div>
                                 </div>

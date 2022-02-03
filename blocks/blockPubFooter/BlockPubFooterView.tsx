@@ -2,30 +2,17 @@ import Link from 'next/link'
 import { FC } from 'react'
 
 import { BlockTemplateViewProps } from '../../../../../utils/typescript-utils'
-import { BlockPubSectionMainViewProps } from '../blockPubSectionMain/blockPubSectionMain'
+import { BlockTemplateCustomPageData } from './blockPubFooter'
 
-type SectionData = {
-  href: string
-  sectionName: string
-}
-
-const BlockPubFooterView: FC<BlockTemplateViewProps> = props => {
-  const sections = props?.listPageAdditionalBlocks?.items?.reduce((tot: SectionData[], block): SectionData[] => {
-    if (block.blockCategory === 'PubSectionMain' && block.data) {
-      const sectionData = JSON.parse(block.data) as BlockPubSectionMainViewProps
-      const { name } = sectionData
-      const slug = block.getPage?.slug
-      if (name && slug) {
-        return [
-          ...tot,
-          {
-            href: slug,
-            sectionName: name,
-          },
-        ]
-      } else return tot
-    } else return tot
-  }, [])
+const BlockPubFooterView: FC<
+  BlockTemplateViewProps<{
+    ShapeOfCustomPropsDerivedFromPageData: BlockTemplateCustomPageData
+  }>
+> = props => {
+  const { sections } = props.blockCustomData
+  if (sections?.length) {
+    return null
+  }
 
   return (
     <div className="footer ali-background-brand wf-section">
@@ -45,12 +32,12 @@ const BlockPubFooterView: FC<BlockTemplateViewProps> = props => {
               </h6>
               <div className="collection-list-wrapper w-dyn-list">
                 <div role="list" className="w-dyn-items">
-                  {sections?.map(el => (
-                    <div role="listitem" className="w-dyn-item" key={el.href}>
+                  {sections?.map(({ href, sectionName }) => (
+                    <div role="listitem" className="w-dyn-item" key={href}>
                       <div className="div-block-21">
-                        <Link href={el.href}>
+                        <Link href={href}>
                           <a className="margin-right roy-brand body1-brand" style={{ marginBottom: '0px' }}>
-                            {el.sectionName}
+                            {sectionName}
                           </a>
                         </Link>
                       </div>

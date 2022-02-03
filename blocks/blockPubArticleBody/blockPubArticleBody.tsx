@@ -7,7 +7,29 @@ export type BlockPubArticleBodyProps = {
   content?: string
 }
 
-export const blockPubArticleBody: BlockProps = {
+export type BlockPubArticleBodyHeroArticleData = {
+  id: string
+  href: string
+  title: string | undefined
+  src: string | undefined
+  releaseDate: string
+}
+
+export type BlockPubArticleBodyTagData = {
+  href: string
+  name: string
+}
+
+export type BlockPubArticleBodyCustomPageData = {
+  articlesToAddSorted: BlockPubArticleBodyHeroArticleData[]
+  tagListBlock: BlockPubArticleBodyTagData[]
+  articleTitle: string | undefined
+}
+
+export const blockPubArticleBody: BlockProps<{
+  ShapeOfBlockDataInDB: BlockPubArticleBodyProps
+  ShapeOfCustomPropsDerivedFromPageData: BlockPubArticleBodyCustomPageData
+}> = {
   id: 'blockPubArticleBody',
   name: 'Article Body',
   viewComponent: View,

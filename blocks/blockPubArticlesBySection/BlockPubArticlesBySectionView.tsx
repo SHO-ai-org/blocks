@@ -5,84 +5,17 @@ import { FC } from 'react'
 import { monthNames } from '../../../../../utils/date-utils'
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 import Image from '../../../Image'
-import { BlockPubArticleHeaderProps } from '../blockPubArticleHeader/blockPubArticleHeader'
-import { BlockPubSectionMainViewProps } from '../blockPubSectionMain/blockPubSectionMain'
-import { BlockPubArticlesBySectionProps } from './blockPubArticlesBySection'
+import { BlockPubArticlesBySectionProps, PubArticlesBySectionCustomDataProps } from './blockPubArticlesBySection'
 
-type HeroArticleData = {
-  date: Date
-  title: string | undefined
-  summary: string | undefined
-  day: string | number
-  year: string | number
-  month: string | number
-  src: string | undefined
-  href: string
-}
+const BlockPubArticlesBySectionView: FC<
+  BlockViewProps<{
+    ShapeOfBlockDataInDB: BlockPubArticlesBySectionProps
+    ShapeOfCustomPropsDerivedFromPageData: PubArticlesBySectionCustomDataProps
+  }>
+> = props => {
+  const { topArticlesBySection, sectionName, sectionHref } = props.blockCustomData
 
-const BlockPubArticlesBySectionView: FC<BlockViewProps<BlockPubArticlesBySectionProps>> = props => {
-  if (!props.data?.section) {
-    return null
-  }
-
-  let sectionName: string | undefined
-  let sectionHref: string | undefined
-
-  const articlesBySection = props?.listPageAdditionalBlocks?.items?.reduce(
-    (tot: HeroArticleData[], block): HeroArticleData[] => {
-      if (block.blockCategory === 'PubArticleHeader' && block.data) {
-        const data = JSON.parse(block.data) as BlockPubArticleHeaderProps
-        if (
-          data?.externalDisplay !== 'topStory' &&
-          data?.externalDisplay !== 'hero' &&
-          block.releaseDate &&
-          data.section === props.data.section
-        ) {
-          const date = new Date(block.releaseDate)
-          const day = date.getUTCDate()
-          const year = date.getUTCFullYear()
-          const month = date.getUTCMonth() //months from 1-12
-          const href = block.getPage?.slug
-
-          const blockSection = block.listExternalBlocks?.items?.find(
-            externalBlock => externalBlock.blockCategory === 'PubSectionMain',
-          )
-          const blockSectionData = blockSection?.data
-            ? (JSON.parse(blockSection.data) as BlockPubSectionMainViewProps)
-            : null
-
-          if (!sectionName && blockSectionData?.name) {
-            sectionName = blockSectionData?.name
-          }
-
-          if (!sectionHref && blockSection?.getPage?.slug) {
-            sectionHref = blockSection?.getPage?.slug
-          }
-
-          if (href) {
-            return [
-              ...tot,
-              {
-                date,
-                title: data.title,
-                summary: data.summary,
-                day,
-                year,
-                month,
-                src: data.image,
-                href,
-              },
-            ]
-          } else return tot
-        } else return tot
-      } else return tot
-    },
-    [],
-  )
-
-  if (!sectionName || !sectionHref || !articlesBySection?.length) return null
-
-  const topArticlesBySection = articlesBySection.slice(0, 4)
+  if (!sectionName || !sectionHref || !topArticlesBySection?.length) return null
 
   return (
     <div className="home-section section wf-section" style={{ background: '#fff' }}>
@@ -136,7 +69,7 @@ const BlockPubArticlesBySectionView: FC<BlockViewProps<BlockPubArticlesBySection
                             <div className="_5px"></div>
                             <div className="overline-brand no-margin"> | </div>
                             <div className="_5px"></div>
-                            <div className="caption-brand no-margin cal-brand">
+                            <div className="overline-brand opacity-50 no-margin">
                               {monthNames[el.month]} {el.day}, {el.year}
                             </div>
                           </div>

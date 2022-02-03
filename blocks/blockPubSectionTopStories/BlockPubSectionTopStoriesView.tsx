@@ -4,56 +4,19 @@ import { FC } from 'react'
 
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 import Image from '../../../Image'
-import { BlockPubArticleHeaderProps } from '../blockPubArticleHeader/blockPubArticleHeader'
+import { BlockPubSectionTopStoriesCustomPageData } from './blockPubSectionTopStories'
 
-type HeroArticleData = {
-  title: string | undefined
-  src: string
-  href: string
-}
+const BlockPubSectionTopStoriesView: FC<
+  BlockViewProps<{
+    ShapeOfCustomPropsDerivedFromPageData: BlockPubSectionTopStoriesCustomPageData
+  }>
+> = props => {
+  console.log('BlockPubSectionTopStoriesView props', props)
+  const { featuredArticle, secondaryArticles, sectionName } = props.blockCustomData
 
-const BlockPubSectionTopStoriesView: FC<BlockViewProps> = props => {
-  const sectionBlock = props?.listPageLocalBlocks?.items?.find(block => block.blockCategory === 'PubSectionMain')
-
-  if (!sectionBlock) {
+  if (!sectionName || !featuredArticle) {
     return null
   }
-
-  const articlesBySection = sectionBlock.listExternalBlocks?.items?.reduce(
-    (tot: HeroArticleData[], block): HeroArticleData[] => {
-      if (block.blockCategory === 'PubArticleHeader' && block.data) {
-        const data = JSON.parse(block.data) as BlockPubArticleHeaderProps
-
-        if (
-          data?.section === sectionBlock.id &&
-          block.releaseDate &&
-          data.image &&
-          data.externalDisplay === 'topStory'
-        ) {
-          const href = block.getPage?.slug
-          if (href) {
-            return [
-              ...tot,
-              {
-                title: data.title,
-                src: data.image,
-                href,
-              },
-            ]
-          } else return tot
-        } else return tot
-      } else return tot
-    },
-    [],
-  )
-
-  if (!articlesBySection?.length) {
-    return null
-  }
-
-  const sectionName = sectionBlock.data ? JSON.parse(sectionBlock.data)?.name : ''
-  const featuredArticle = articlesBySection?.[0]
-  const secondaryArticles = articlesBySection?.slice(1, 5)
 
   return (
     <div className="section-top-stories ben-background-brand wf-section">
@@ -61,12 +24,15 @@ const BlockPubSectionTopStoriesView: FC<BlockViewProps> = props => {
         <div role="list" className="featured-category-post-wrapper w-dyn-items">
           <Link href={featuredArticle.href} passHref>
             <div role="listitem" className="featured-category-post w-dyn-item" style={{ cursor: 'pointer' }}>
-              <a className="featured-category-post-link w-inline-block">
+              <a className="featured-category-post-link w-inline-block" style={{ position: 'relative' }}>
                 <Box
                   css={{
-                    width: '100%',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
                     '& > div': {
-                      paddingBottom: '60%',
                       width: '100%',
                       height: '100%',
                     },
@@ -107,7 +73,7 @@ const BlockPubSectionTopStoriesView: FC<BlockViewProps> = props => {
           <div className="space"></div>
           <div className="w-dyn-list">
             <div role="list" className="w-dyn-items">
-              {secondaryArticles.map(el => (
+              {secondaryArticles?.map(el => (
                 <Link href={el.href} passHref key={el.href}>
                   <div role="listitem" className="w-dyn-item" style={{ cursor: 'pointer' }}>
                     <div className="sidebar-article-wrapper">

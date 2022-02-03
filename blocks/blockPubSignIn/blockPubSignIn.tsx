@@ -11,7 +11,25 @@ export type BlockSignInProps = {
   picture5?: string
 }
 
-export const blockPubSignIn: BlockProps<BlockSignInProps> = {
+export type BlockPubSigninHeroArticleData = {
+  title: string | undefined
+  src: string
+  href: string
+}
+
+export type BlockPubSigninArticlesType = {
+  heroArticles: BlockPubSigninHeroArticleData[]
+  topStoryArticles: BlockPubSigninHeroArticleData[]
+  articles: BlockPubSigninHeroArticleData[]
+}
+
+export type BlockPubSigninCustomPageData = {
+  articlesToDisplay: BlockPubSigninHeroArticleData[]
+}
+
+export const blockPubSignIn: BlockProps<{
+  ShapeOfCustomPropsDerivedFromPageData: BlockPubSigninCustomPageData
+}> = {
   id: 'blockPubSignIn',
   name: 'Publication Sign In',
   viewComponent: View,

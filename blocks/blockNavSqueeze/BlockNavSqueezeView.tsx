@@ -11,16 +11,16 @@ const BlockSqueezeView: FC<BlockViewProps> = () => {
   return (
     <>
       <div className="master-header roy-background-brand">
-        <div className="sue-background-brand wf-section">
+        <div className="sue-background-brand wf-section" style={{ width: '100%' }}>
           <div className="main-container mobile">
-            <div className="logo-bar">
+            <div className="logo-bar" style={{ padding: 0 }}>
               <Link href="/" passHref>
-                <a className="logo-link w-inline-block" style={{ cursor: 'pointer' }}>
+                <a className="logo-link w-inline-block" style={{ cursor: 'pointer', marginLeft: 0 }}>
                   <div>
                     <div className="_20-padding top-nav">
                       <div className="div-block-17">
                         <div className="horizontal">
-                          <div className="logo-dark-horizontallockup-background-image-url-brand"></div>
+                          <div className="logo-dark-horizontallockup-background-image-url-brand hide-below-tablet"></div>
                         </div>
                         <div className="vertical">
                           <div className="logo-dark-verticallockup-background-image-url-brand"></div>
@@ -30,20 +30,20 @@ const BlockSqueezeView: FC<BlockViewProps> = () => {
                   </div>
                 </a>
               </Link>
-              <div className="social-links margin-right">
+              <div className="social-links margin-right nav-squeeze-social-links" style={{ display: 'flex' }}>
                 {!!(
                   status !== 'loading' &&
                   !subscriber?.stripeSubscriptions?.length &&
                   !subscriber?.legacySubscription
                 ) && (
-                  <p className="no-margin">
-                    <span className="_50-opacity">Don&#x27;t have a subscription? </span>
+                  <p className="no-margin body2-brand" style={{ marginBottom: 0 }}>
+                    <span className="_50-opacity hide-below-tablet">Don&#x27;t have a subscription? </span>
                     <Link href="/subscribe">Subscribe</Link>
                   </p>
                 )}
-                <div className="space"></div>
-                <p className="no-margin sue-brand">
-                  <span className="_50-opacity ota-brand">Need help?</span>&nbsp;
+                <div className="space hide-below-tablet"></div>
+                <p className="no-margin sue-brand body2-brand" style={{ marginBottom: 0 }}>
+                  <span className="_50-opacity ota-brand hide-below-tablet">Need help?&nbsp;</span>
                   <a target="_blank" rel="noreferrer" href="tel:5733347115">
                     573-334-7115
                   </a>

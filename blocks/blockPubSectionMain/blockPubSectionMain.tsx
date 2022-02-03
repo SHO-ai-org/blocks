@@ -5,11 +5,12 @@ import View from './BlockPubSectionMainView'
 
 export type BlockPubSectionMainViewProps = {
   name?: string
-  description?: string
   featuredInNav?: boolean
 }
 
-export const blockPubSectionMain: BlockProps<BlockPubSectionMainViewProps> = {
+export const blockPubSectionMain: BlockProps<{
+  ShapeOfBlockDataInDB: BlockPubSectionMainViewProps
+}> = {
   id: 'blockPubSectionMain',
   name: 'Section Main',
   viewComponent: View,
