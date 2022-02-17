@@ -22,7 +22,7 @@ export const blockPubSectionTopStories: BlockProps<{
   name: 'Section Top Stories',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Section with Top Stories',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

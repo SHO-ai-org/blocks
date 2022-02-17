@@ -88,7 +88,7 @@ const BlockPubArticleRelatedArticlesView: FC<
                           </Link>
                         )}
                         <div className="_5px"></div>
-                        <div className="overline-brand opacity-50 no-margin">
+                        <div className="overline-brand opacity-90 no-margin">
                           {monthNames[el.month]} {el.day}, {el.year}
                         </div>
                       </div>

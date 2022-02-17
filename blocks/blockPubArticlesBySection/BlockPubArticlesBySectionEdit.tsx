@@ -15,14 +15,14 @@ const BlockPubArticlesBySectionEdit: FC<
   })
   const { sectionDropdownList } = props.blockCustomData
 
-  const onUpdateDropdown = ({ key }: { key: string }): void => {
+  const onUpdateDropdown = (key: string): void => {
     if (!props.onUpdateBlock) {
       console.error('onUpdateBlock function is not passed to edit mode block')
     } else {
       props.onUpdateBlock({
         variables: {
           updateBlockInput: {
-            id: props.block.id,
+            id: props.blockId,
             data: JSON.stringify({
               section: key,
             }),
@@ -38,7 +38,7 @@ const BlockPubArticlesBySectionEdit: FC<
         <DropdownExposed
           LabelText="Choose Section"
           value={formData.section}
-          onValueChange={(event, value) => {
+          onValueChange={value => {
             onUpdateDropdown(value)
             updateFormDataValue({ name: 'section', value })
           }}

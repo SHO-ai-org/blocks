@@ -7,7 +7,7 @@ export const blockWisiwig: BlockProps = {
   name: 'Wisiwig block',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Wisiwig',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

@@ -60,7 +60,7 @@ const BlockSubscribeView: FC<BlockViewProps<{ ShapeOfBlockDataInDB: BlockPubSubs
     <div className="subscribe-options section roy-background-brand wf-section">
       <div className="main-container">
         <div className="align-center">
-          <h6 className="no-margin">since 1904</h6>
+          <p className="no-margin h6-brand">since 1904</p>
           <h1>
             Live well. Connect locally.
             <br />
@@ -108,10 +108,10 @@ const BlockSubscribeView: FC<BlockViewProps<{ ShapeOfBlockDataInDB: BlockPubSubs
           <div>
             <div>
               <div className="product-callout ali-background-brand sue-brand">
-                <h6 className="no-margin">
+                <p className="no-margin h6-brand">
                   Reader&#x27;s Choice
                   <br />
-                </h6>
+                </p>
               </div>
               <div
                 data-w-id="54e35276-2727-5cee-be3a-d591939b49ee"
@@ -124,11 +124,11 @@ const BlockSubscribeView: FC<BlockViewProps<{ ShapeOfBlockDataInDB: BlockPubSubs
                   onClick={() => {
                     handleCheckout(stripePlans.digital.stripeId)
                   }}
-                  className="button button-primary-brand button-brand sue-brand w-button"
+                  className="button button-primary-brand button-brand w-button"
                   style={{ display: 'inline-block' }}>
                   <strong>Subscribe Now</strong>
                 </a>
-                <p className="caption-brand padding-top _50-opacity">Charged monthly / Cancel anytime</p>
+                <p className="caption-brand padding-top _90-opacity">Charged monthly / Cancel anytime</p>
               </div>
               <div className="price-selector sue-background-brand">
                 <p>
@@ -180,7 +180,7 @@ const BlockSubscribeView: FC<BlockViewProps<{ ShapeOfBlockDataInDB: BlockPubSubs
                   style={{ display: 'inline-block' }}>
                   <strong>Subscribe Now</strong>
                 </a>
-                <p className="caption-brand padding-top _50-opacity">Charged monthly / Cancel anytime</p>
+                <p className="caption-brand padding-top _90-opacity">Charged monthly / Cancel anytime</p>
               </div>
               <div className="price-selector sue-background-brand">
                 <p>All benefits of Digital plus:</p>
@@ -210,7 +210,7 @@ const BlockSubscribeView: FC<BlockViewProps<{ ShapeOfBlockDataInDB: BlockPubSubs
                   }}>
                   Subscribe now
                 </a>
-                <p className="caption-brand padding-top _50-opacity">Charged monthly / Cancel anytime</p>
+                <p className="caption-brand padding-top _90-opacity">Charged monthly / Cancel anytime</p>
               </div>
               <div className="price-selector sue-background-brand">
                 <p>All benefits of Print and Digital:</p>

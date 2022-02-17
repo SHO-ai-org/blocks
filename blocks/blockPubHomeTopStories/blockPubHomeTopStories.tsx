@@ -28,7 +28,7 @@ export const blockPubHomeTopStories: BlockProps<{
   name: 'Home Top Stories',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Top stories for publication home page',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

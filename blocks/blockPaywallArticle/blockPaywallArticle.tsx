@@ -15,7 +15,7 @@ export const blockPaywallArticle: BlockProps<{
   name: 'Article Paywall',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Paywall for article',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

@@ -33,15 +33,14 @@ const BlockPubHomeTopStoriesView: FC<
             </div>
             <div className="w-layout-grid featured-articles-grid">
               <div className="featured-article-wrapper w-dyn-list">
-                <div role="list" className="w-dyn-items">
-                  <div role="listitem" className="collection-item-2 w-dyn-item">
-                    <div className="sticky" style={{ width: '100%' }}>
-                      <Link href={featuredArticle.href} passHref>
-                        <a className="w-inline-bl ock" style={{ cursor: 'pointer' }}>
+                <Link href={featuredArticle.href} passHref>
+                  <div role="list" className="w-dyn-items" style={{ cursor: 'pointer' }}>
+                    <div role="listitem" className="collection-item-2 w-dyn-item">
+                      <div className="sticky" style={{ width: '100%' }}>
+                        <div className="w-inline-bl ock">
                           {featuredArticle.src && featuredArticle.width && featuredArticle.height && (
                             <Box
                               css={{
-                                cursor: 'pointer',
                                 width: '100%',
                               }}>
                               <Image
@@ -56,14 +55,12 @@ const BlockPubHomeTopStoriesView: FC<
                               />
                             </Box>
                           )}
-                        </a>
-                      </Link>
-                      <div className="post-preview-title">
-                        {featuredArticle.sectionHref && (
-                          <Link href={featuredArticle.sectionHref}>
-                            <a className="w-inline-block" style={{ cursor: 'pointer' }}>
+                        </div>
+                        <div className="post-preview-title">
+                          {featuredArticle.sectionHref && (
+                            <div className="w-inline-block ben-brand">
                               <div className="_20px"></div>
-                              <div className="div-block-16">
+                              <div className="div-block-16 ben">
                                 <div
                                   className={`overline-brand no-margin ${
                                     featuredArticle.sectionName?.toLocaleLowerCase() === 'sponsored content'
@@ -75,56 +72,56 @@ const BlockPubHomeTopStoriesView: FC<
                                 <div className="_5px"></div>
                                 <div className="overline-brand no-margin"> | </div>
                                 <div className="_5px"></div>
-                                <div className="overline-brand no-margin opacity-50">
+                                <div className="overline-brand no-margin opacity-90">
                                   {monthNames[featuredArticle.month]} {featuredArticle.day}, {featuredArticle.year}
                                 </div>
                               </div>
+                            </div>
+                          )}
+                          <div className="post-link-block w-inline-block">
+                            <a href={featuredArticle.href}>
+                              <span className="post-link-block w-inline-block">
+                                <h3 className="h5-brand">{featuredArticle.title}</h3>
+                              </span>
                             </a>
-                          </Link>
-                        )}
-                        <Link href={featuredArticle.href}>
-                          <a className="post-link-block w-inline-block" style={{ cursor: 'pointer' }}>
-                            <h5>{featuredArticle.title}</h5>
                             <div className="body1-brand qui-brand no-margin">{featuredArticle.summary}</div>
-                            <div className="body2-brand dan-brand">Read more</div>
                             <div className="_20px"></div>
-                          </a>
-                        </Link>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
               <div>
                 {smallFeaturedArticles.map(el => (
                   <div className="small-featured-articles-wrapper w-dyn-list" key={el.href}>
-                    <div role="list" className="small-featured-articles w-dyn-items">
-                      <div role="listitem" className="w-dyn-item">
-                        <div className="div-block-2">
-                          {el.src && el.height && el.width && (
-                            <Link href={el.href} passHref>
-                              <Box
-                                css={{
-                                  cursor: 'pointer',
-                                  width: '100%',
-                                }}>
-                                <Image
-                                  alt={el.title}
-                                  layout="responsive"
-                                  width={el.width}
-                                  height={el.height}
-                                  asset={{
-                                    public: true,
-                                    key: el.src,
-                                  }}
-                                />
-                              </Box>
-                            </Link>
-                          )}
-                          <div className="post-preview-title reduced-margin">
-                            {el.sectionHref && (
-                              <Link href={el.sectionHref}>
-                                <a className="w-inline-block">
+                    <Link href={el.href} passHref>
+                      <div role="list" className="small-featured-articles w-dyn-items" style={{ cursor: 'pointer' }}>
+                        <div role="listitem" className="w-dyn-item">
+                          <div className="div-block-2">
+                            {el.src && el.height && el.width && (
+                              <div>
+                                <Box
+                                  css={{
+                                    width: '100%',
+                                  }}>
+                                  <Image
+                                    alt={el.title}
+                                    layout="responsive"
+                                    width={el.width}
+                                    height={el.height}
+                                    asset={{
+                                      public: true,
+                                      key: el.src,
+                                    }}
+                                  />
+                                </Box>
+                              </div>
+                            )}
+                            <div className="post-preview-title reduced-margin">
+                              {el.sectionHref && (
+                                <div className="w-inline-block ben-brand">
                                   <div className="_20px"></div>
                                   <div className="div-block-16">
                                     <div
@@ -136,23 +133,27 @@ const BlockPubHomeTopStoriesView: FC<
                                     <div className="_5px"></div>
                                     <div className="overline-brand no-margin"> | </div>
                                     <div className="_5px"></div>
-                                    <div className="overline-brand opacity-50 no-margin">
+                                    <div className="overline-brand opacity-90 no-margin">
                                       {monthNames[el.month]} {el.day}, {el.year}
                                     </div>
                                   </div>
-                                </a>
-                              </Link>
-                            )}
-                            <Link passHref href={el.href}>
-                              <a className="post-link-block redurced-margin w-inline-block">
-                                <h5>{el.title}</h5>
-                                <div className="_20px"></div>
-                              </a>
-                            </Link>
+                                </div>
+                              )}
+                              <div>
+                                <span>
+                                  <a href={el.href}>
+                                    <span className="post-link-block redurced-margin w-inline-block">
+                                      <h3 className="h5-brand">{el.title}</h3>
+                                    </span>
+                                  </a>
+                                  <div className="_20px"></div>
+                                </span>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -168,10 +169,10 @@ const BlockPubHomeTopStoriesView: FC<
                   <div role="list" className="article-sidebar-grid w-dyn-items">
                     {adSidebarArticles.map(el => (
                       <div role="listitem" className="w-dyn-item" key={el.href}>
-                        <div className="sidebar-article-wrapper">
-                          {el.sectionHref && (
-                            <Link href={el.sectionHref} passHref>
-                              <a className="w-inline-block">
+                        <Link href={el.href} passHref>
+                          <div className="sidebar-article-wrapper">
+                            {el.sectionHref && (
+                              <div className="w-inline-block ben-brand">
                                 <div className="div-block-16">
                                   <div
                                     className={`overline-brand no-margin ${
@@ -182,57 +183,58 @@ const BlockPubHomeTopStoriesView: FC<
                                   <div className="_5px"></div>
                                   <div className="overline-brand no-margin"> | </div>
                                   <div className="_5px"></div>
-                                  <div className="overline-brand opacity-50 no-margin">
+                                  <div className="overline-brand opacity-90 no-margin">
                                     {monthNames[el.month]} {el.day}, {el.year}
                                   </div>
                                 </div>
+                              </div>
+                            )}
+                            <div>
+                              <a href={el.href}>
+                                <div className="post-link-block redurced-margin w-inline-block">
+                                  <h3 className="no-margin h5-brand">{el.title}</h3>
+                                </div>
                               </a>
-                            </Link>
-                          )}
-                          <Link passHref href={el.href}>
-                            <a className="post-link-block redurced-margin w-inline-block">
-                              <h5 className="no-margin">{el.title}</h5>
-                            </a>
-                          </Link>
-                        </div>
+                            </div>
+                          </div>
+                        </Link>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
               {lastArticle && (
-                <>
-                  <a className="sunshine-link w-inline-block">
-                    <div className="_20px"></div>
-                  </a>
-                  <div className="article-sidebar-grid-wrapper w-dyn-list">
-                    <div role="list" className="article-sidebar-grid w-dyn-items">
-                      <div role="listitem" className="w-dyn-item">
-                        <div className="sidebar-article-wrapper">
-                          {lastArticle.src && lastArticle.href && (
-                            <Link href={lastArticle.href} passHref>
-                              <Box
-                                css={{
-                                  width: '100%',
-                                  cursor: 'pointer',
-                                }}>
-                                <Image
-                                  alt={lastArticle.title}
-                                  layout="responsive"
-                                  width={featuredArticle.width}
-                                  height={featuredArticle.height}
-                                  asset={{
-                                    public: true,
-                                    key: lastArticle.src,
-                                  }}
-                                />
-                              </Box>
-                            </Link>
-                          )}
-                          <div className="_20px"></div>
-                          {lastArticle.sectionHref && (
-                            <Link href={lastArticle.sectionHref} passHref>
-                              <a className="w-inline-block">
+                <Link href={lastArticle.href} passHref>
+                  <div style={{ cursor: 'pointer' }}>
+                    <div className="sunshine-link w-inline-block">
+                      <div className="_20px"></div>
+                    </div>
+                    <div className="article-sidebar-grid-wrapper w-dyn-list">
+                      <div role="list" className="article-sidebar-grid w-dyn-items">
+                        <div role="listitem" className="w-dyn-item">
+                          <div className="sidebar-article-wrapper">
+                            {lastArticle.src && lastArticle.href && (
+                              <div>
+                                <Box
+                                  css={{
+                                    width: '100%',
+                                  }}>
+                                  <Image
+                                    alt={lastArticle.title}
+                                    layout="responsive"
+                                    width={featuredArticle.width}
+                                    height={featuredArticle.height}
+                                    asset={{
+                                      public: true,
+                                      key: lastArticle.src,
+                                    }}
+                                  />
+                                </Box>
+                              </div>
+                            )}
+                            <div className="_20px"></div>
+                            {lastArticle.sectionHref && (
+                              <span className="w-inline-block ben-brand">
                                 <div className="div-block-16">
                                   <div
                                     className={`overline-brand no-margin ${
@@ -245,24 +247,26 @@ const BlockPubHomeTopStoriesView: FC<
                                   <div className="_5px"></div>
                                   <div className="overline-brand no-margin"> | </div>
                                   <div className="_5px"></div>
-                                  <div className="overline-brand opacity-50 no-margin">
+                                  <div className="overline-brand opacity-90 no-margin">
                                     {monthNames[lastArticle.month]} {lastArticle.day}, {lastArticle.year}
                                   </div>
                                 </div>
+                              </span>
+                            )}
+                            <span className="post-link-block redurced-margin w-inline-block">
+                              <a href={lastArticle.href}>
+                                <span className="post-link-block redurced-margin w-inline-block">
+                                  <h3 className="h5-brand">{lastArticle.title}</h3>
+                                </span>
                               </a>
-                            </Link>
-                          )}
-                          <Link href={lastArticle.href} passHref>
-                            <a className="post-link-block redurced-margin w-inline-block">
-                              <h5>{lastArticle.title}</h5>
                               <p className="body1-brand qui-brand">{lastArticle.summary}</p>
-                            </a>
-                          </Link>
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </>
+                </Link>
               )}
             </div>
           </div>

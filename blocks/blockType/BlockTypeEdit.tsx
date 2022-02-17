@@ -1,5 +1,5 @@
 import { useMemo, useContext, FC } from 'react'
-import * as SHO from '@sho-ai-org/pattern-library'
+import { Box } from '@sho-ai-org/pattern-library'
 import useIsMounted from 'ismounted'
 import * as C from './blockTypeComp'
 import Form from '../../../Form'
@@ -24,7 +24,7 @@ export const BlockTypeEdit: FC<BlockEditProps> = ({ theme, brandStyleId }) => {
 
   return (
     <C.BlockTypeComp theme={theme}>
-      <SHO.Box
+      <Box
         css={{
           '& > div': {
             display: 'flex',
@@ -150,7 +150,7 @@ export const BlockTypeEdit: FC<BlockEditProps> = ({ theme, brandStyleId }) => {
           ]}
           buttonLabel="add fonts"
         />
-      </SHO.Box>
+      </Box>
     </C.BlockTypeComp>
   )
 }

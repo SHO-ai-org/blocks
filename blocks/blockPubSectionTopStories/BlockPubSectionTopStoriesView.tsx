@@ -64,12 +64,12 @@ const BlockPubSectionTopStoriesView: FC<
       </div>
       <div className="category-title-wrapper">
         <div className="category-title">
-          <h6
+          <h2
             className={`no-margin h6-brand ${
-              sectionName?.toLocaleLowerCase() === 'sponsored content' ? 'dan-brand' : 'sue-brand'
+              sectionName?.toLocaleLowerCase() === 'sponsored content' ? 'dan-brand h6-brand' : 'sue-brand h6-brand'
             }`}>
             {sectionName}
-          </h6>
+          </h2>
           <div className="space"></div>
           <div className="w-dyn-list">
             <div role="list" className="w-dyn-items">
@@ -78,7 +78,7 @@ const BlockPubSectionTopStoriesView: FC<
                   <div role="listitem" className="w-dyn-item" style={{ cursor: 'pointer' }}>
                     <div className="sidebar-article-wrapper">
                       <a className="post-link-block redurced-margin w-inline-block">
-                        <h5 className="sue-brand">{el.title}</h5>
+                        <h3 className="sue-brand h5-brand">{el.title}</h3>
                       </a>
                     </div>
                   </div>

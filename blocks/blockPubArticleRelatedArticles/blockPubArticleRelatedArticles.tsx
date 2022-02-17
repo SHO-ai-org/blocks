@@ -30,7 +30,7 @@ export const blockPubArticleRelatedArticles: BlockProps<{
   name: 'Related Articles',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Cards of Related Articles',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

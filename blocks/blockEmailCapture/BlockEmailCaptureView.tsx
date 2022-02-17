@@ -46,7 +46,7 @@ const BlockEmailCaptureView: FC<BlockTemplateViewProps> = () => {
       <div className="main-container">
         <div className="subscribe-container justify-content-center">
           <div className="section-title sue-brand">
-            <h4 className="large-heading">Don&#x27;t miss the news!</h4>
+            <h2 className="large-heading h4-brand">Don&#x27;t miss the news!</h2>
             <div className="body1-brand">Get a weekly digest of our most important stories direct to your inbox.</div>
           </div>
 
@@ -79,7 +79,7 @@ const BlockEmailCaptureView: FC<BlockTemplateViewProps> = () => {
                   type="submit"
                   value="Submit"
                   data-wait="Please wait..."
-                  className="button button-primary-brand button-brand sue-brand w-button"
+                  className="button button-primary-brand button-brand w-button"
                 />
               </form>
             )}
@@ -96,7 +96,7 @@ const BlockEmailCaptureView: FC<BlockTemplateViewProps> = () => {
                   type="submit"
                   value="Subscribe to Newsletter"
                   data-wait="Please wait..."
-                  className="button button-primary-brand button-brand sue-brand w-button"
+                  className="button button-primary-brand button-brand w-button"
                 />
               </form>
             )}

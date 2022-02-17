@@ -8,7 +8,7 @@ export const blockPubAccount: BlockProps = {
   name: 'Publication Account',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'User account for publication',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

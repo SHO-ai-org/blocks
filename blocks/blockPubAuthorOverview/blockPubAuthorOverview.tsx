@@ -22,7 +22,7 @@ export const blockPubAuthorOverview: BlockProps<{
   name: 'Author Overview',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Bio of Author',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

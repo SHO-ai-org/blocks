@@ -8,7 +8,7 @@ export const blockLogos: BlockProps = {
   name: 'Logos',
   editComponent: Edit,
   viewComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Identity Logos',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

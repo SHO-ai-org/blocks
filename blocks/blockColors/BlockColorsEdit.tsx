@@ -1,6 +1,6 @@
 import { useContext, FC } from 'react'
 import useIsMounted from 'ismounted'
-import * as SHO from '@sho-ai-org/pattern-library'
+import { useFormData, Textfield } from '@sho-ai-org/pattern-library'
 import { useCallback } from 'react'
 import * as C from './BlockColorComp'
 import { snackbarContext } from '../../../../../utils/context-utils'
@@ -22,8 +22,8 @@ const BlockColorsEdit: FC<BlockEditProps> = ({ theme, brandStyleId }) => {
   const initialData = initializeColorData({ theme })
   const openSnackbar = useContext(snackbarContext)
   const isMounted = useIsMounted()
-  const { formDataTextfieldChange, formData } = SHO.useFormData(initialData)
-  // const { formDataTextfieldChange, formData } = SHO.useFormData({ sec: 'mike' })
+  const { formDataTextfieldChange, formData } = useFormData(initialData)
+  // const { formDataTextfieldChange, formData } = useFormData({ sec: 'mike' })
 
   const [onUpdateBrandStyle] = useUpdateBrandStyleMutation()
 
@@ -88,7 +88,7 @@ const BlockColorsEdit: FC<BlockEditProps> = ({ theme, brandStyleId }) => {
       }}
       uiCallback={({ id }) => (
         <C.ColorTextContainer data-intercom-target={id} css={{ scrollMarginTop: '60px' }} key={id}>
-          <SHO.Textfield
+          <Textfield
             placeholder="rgba(x,x,x,1)"
             name={id}
             value={formData[id]}

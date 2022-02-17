@@ -49,7 +49,7 @@ export const blockPubArticleHeader: BlockProps<{
   name: 'Article Header',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Top of Article',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

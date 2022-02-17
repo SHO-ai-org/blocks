@@ -24,7 +24,7 @@ export const blockPubSubscribe: BlockProps<{ ShapeOfBlockDataInDB: BlockPubSubsc
   name: 'Publication Subscription',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Subscription for publication',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

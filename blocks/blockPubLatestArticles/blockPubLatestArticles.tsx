@@ -32,7 +32,7 @@ export const blockPubLatestArticles: BlockProps<{
   name: 'Latest Articles',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Latest articles',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

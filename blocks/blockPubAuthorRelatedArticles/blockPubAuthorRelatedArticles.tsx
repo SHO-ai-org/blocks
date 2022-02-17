@@ -26,7 +26,7 @@ export const blockPubAuthorRelatedArticles: BlockProps<{
   name: 'Related Storeis',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Section with Related Stories of Author',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

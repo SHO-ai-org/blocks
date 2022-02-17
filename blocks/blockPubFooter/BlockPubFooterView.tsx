@@ -1,3 +1,4 @@
+import { ShoImage } from '@sho-ai-org/pattern-library'
 import Link from 'next/link'
 import { FC } from 'react'
 
@@ -10,7 +11,7 @@ const BlockPubFooterView: FC<
   }>
 > = props => {
   const { sections } = props.blockCustomData
-  if (sections?.length) {
+  if (!sections?.length) {
     return null
   }
 
@@ -21,22 +22,27 @@ const BlockPubFooterView: FC<
           <div className="w-layout-grid grid-2">
             <div className="footer-logo-column sue-brand">
               <div className="horizontal">
-                <div className="logo-appicon-background-image-url-brand logo-footer"></div>
+                <ShoImage
+                  layout="intrinsic"
+                  width="227"
+                  height="60"
+                  src="https://public-assets-prod.sho-app.co.uk/brand_0872ee40-e15a-4a2f-bf59-900ff5396792/asset_siteade6-0000-0000-00000000logo.png"
+                />
               </div>
               <div className="_20px"></div>
-              <p className="body1-brand opacity-50">Vital. Inovative. Local.</p>
+              <p className="body1-brand opacity-90">Vital. Inovative. Local.</p>
             </div>
             <div className="div-block-20 sue-brand">
-              <h6 className="opacity-50">
+              <h3 className="opacity-90 h6-brand">
                 <strong className="overline-brand">Sections</strong>
-              </h6>
+              </h3>
               <div className="collection-list-wrapper w-dyn-list">
                 <div role="list" className="w-dyn-items">
                   {sections?.map(({ href, sectionName }) => (
                     <div role="listitem" className="w-dyn-item" key={href}>
                       <div className="div-block-21">
                         <Link href={href}>
-                          <a className="margin-right roy-brand body1-brand" style={{ marginBottom: '0px' }}>
+                          <a className="margin-right roy-brand body1-brand" style={{ marginBottom: '8px' }}>
                             {sectionName}
                           </a>
                         </Link>
@@ -47,9 +53,9 @@ const BlockPubFooterView: FC<
               </div>
             </div>
             <div className="div-block-20 sue-brand">
-              <h6 className="opacity-50">
+              <h3 className="opacity-90 h6-brand">
                 <strong className="overline-brand">LINKS</strong>
-              </h6>
+              </h3>
               <div>
                 <a
                   href="https://www.semissourian.com/classifieds"
@@ -75,9 +81,9 @@ const BlockPubFooterView: FC<
               </div>
             </div>
             <div className="div-block-20 sue-brand">
-              <h6 className="opacity-50">
+              <h3 className="opacity-90 h6-brand">
                 <strong className="overline-brand">CONNECT</strong>
-              </h6>
+              </h3>
               <div>
                 <a
                   href="https://www.facebook.com/semissourian/"
@@ -113,14 +119,14 @@ const BlockPubFooterView: FC<
             </div>
           </div>
           <div className="footer-copyright-text horizontal-row">
-            <div className="no-margin sue-brand overline-brand opacity-25">©2021 RUST Com</div>
+            <div className="no-margin sue-brand overline-brand opacity-90">©2021 RUST Com</div>
             <div className="horizontal-row">
               <Link href="/terms/">
-                <a className="no-margin sue-brand overline-brand opacity-25">Terms</a>
+                <a className="no-margin sue-brand overline-brand opacity-90">Terms</a>
               </Link>
               <div className="_20px"></div>
               <Link href="/privacy-policy">
-                <a href="privacy-policy.html" className="no-margin sue-brand overline-brand opacity-25">
+                <a href="privacy-policy.html" className="no-margin sue-brand overline-brand opacity-90">
                   Privacy
                 </a>
               </Link>

@@ -1,4 +1,4 @@
-import * as SHO from '@sho-ai-org/pattern-library'
+import { Text, Box, Gutter, Flex } from '@sho-ai-org/pattern-library'
 import { FC } from 'react'
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 import placeholderLogo from '../../../../../../public/images/placeholderLogo.png'
@@ -7,15 +7,15 @@ import Image from 'next/image'
 import ImageSho from '../../../Image'
 
 const BlockFooterShoView: FC<BlockViewProps> = ({ theme }) => (
-  <SHO.Box
+  <Box
     as="footer"
     css={{
       color: '$gs1',
       backgroundColor: '$pri',
       paddingTop: '$12',
     }}>
-    <SHO.Gutter>
-      <SHO.Flex
+    <Gutter>
+      <Flex
         css={{
           justifyContent: 'space-between',
           flexWrap: 'wrap',
@@ -55,14 +55,14 @@ const BlockFooterShoView: FC<BlockViewProps> = ({ theme }) => (
               Privacy
             </a>
           </LinkContainer>
-          <SHO.Text variant="caption" css={{ marginBottom: '$1' }}>
+          <Text variant="caption" css={{ marginBottom: '$1' }}>
             version 0.0.1
-          </SHO.Text>
-          <SHO.Text variant="caption">© 2017 – 2020 SHO.ai</SHO.Text>
+          </Text>
+          <Text variant="caption">© 2017 – 2020 SHO.ai</Text>
         </div>
-      </SHO.Flex>
-    </SHO.Gutter>
-  </SHO.Box>
+      </Flex>
+    </Gutter>
+  </Box>
 )
 
 export default BlockFooterShoView

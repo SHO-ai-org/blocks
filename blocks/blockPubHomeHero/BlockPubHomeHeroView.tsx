@@ -58,13 +58,12 @@ const BlockPubHomeHeroView: FC<
                       <div className="_5px"></div>
                       <div className="overline-brand no-margin"> | </div>
                       <div className="_5px"></div>
-                      <div className="overline-brand opacity-50 no-margin">
+                      <div className="overline-brand opacity-90 no-margin">
                         {monthNames[el.month]} {el.day}, {el.year}
                       </div>
                     </div>
                     <h2 style={{ maxWidth: '900px' }}>{el.title}</h2>
                     <div className="_70ch">{el.summary}</div>
-                    <div className="body2-brand dan-brand">Read more</div>
                   </div>
                 </div>
                 <div className="scrim"></div>

@@ -65,7 +65,7 @@ const BlockPubLatestArticlesView: FC<
                             <div className="_5px"></div>
                             <div className="overline-brand no-margin"> | </div>
                             <div className="_5px"></div>
-                            <div className="overline-brand opacity-50 no-margin">
+                            <div className="overline-brand opacity-90 no-margin">
                               {monthNames[el.month]} {el.day}, {el.year}
                             </div>
                           </div>
@@ -115,7 +115,7 @@ const BlockPubLatestArticlesView: FC<
                             <div className="author small-text">
                               <div className="overline-brand qui-brand no-margin">Author</div>
                               <div className="h5-brand no-margin">{el.authorName}</div>
-                              <div className="caption-brand opacity-50">{el.authorPosition}</div>
+                              <div className="caption-brand opacity-90">{el.authorPosition}</div>
                             </div>
                           </a>
                         </Link>

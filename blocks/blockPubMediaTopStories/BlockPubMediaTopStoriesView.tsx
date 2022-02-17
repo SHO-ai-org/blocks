@@ -27,7 +27,7 @@ const BlockPubMediaTopStoriesView: FC<
         <div className="w-layout-grid video-grid">
           <div>
             <div className="bordered-title white">
-              <h6>Media gallery</h6>
+              <h2 className="h6-brand">Media gallery</h2>
             </div>
             <div className="w-dyn-list">
               <div role="list" className="w-dyn-items">
@@ -74,7 +74,7 @@ const BlockPubMediaTopStoriesView: FC<
                             <div className="_5px"></div>
                             <div className="overline-brand no-margin"> | </div>
                             <div className="_5px"></div>
-                            <div className="overline-brand opacity-50 no-margin">
+                            <div className="overline-brand opacity-90 no-margin">
                               {monthNames[featuredArticle.month]} {featuredArticle.day}, {featuredArticle.year}
                             </div>
                           </div>
@@ -90,7 +90,7 @@ const BlockPubMediaTopStoriesView: FC<
           {!!latestVideoArticles.length && (
             <div>
               <div className="bordered-title white">
-                <h6>Latest</h6>
+                <h2 className="h6-brand">Latest</h2>
               </div>
               <div className="w-dyn-list">
                 {latestVideoArticles.map(el => (
@@ -144,7 +144,7 @@ const BlockPubMediaTopStoriesView: FC<
                                   <div className="_5px"></div>
                                   <div className="overline-brand no-margin"> | </div>
                                   <div className="_5px"></div>
-                                  <div className="overline-brand opacity-50 no-margin">
+                                  <div className="overline-brand opacity-90 no-margin">
                                     {monthNames[el.month]} {el.day}, {el.year}
                                   </div>
                                 </div>
@@ -153,7 +153,7 @@ const BlockPubMediaTopStoriesView: FC<
                           )}
                           <Link href={el.href} passHref>
                             <a className="text-white w-inline-block" style={{ cursor: 'pointer' }}>
-                              <h5>{el.title}</h5>
+                              <h3 className="h5-brand">{el.title}</h3>
                             </a>
                           </Link>
                         </div>

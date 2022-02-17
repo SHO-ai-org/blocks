@@ -15,7 +15,7 @@ const BlockSqueezeView: FC<BlockViewProps> = () => {
           <div className="main-container mobile">
             <div className="logo-bar" style={{ padding: 0 }}>
               <Link href="/" passHref>
-                <a className="logo-link w-inline-block" style={{ cursor: 'pointer', marginLeft: 0 }}>
+                <a className="logo-link w-inline-block" style={{ cursor: 'pointer', marginLeft: 0 }} title="home">
                   <div>
                     <div className="_20-padding top-nav">
                       <div className="div-block-17">
@@ -37,13 +37,13 @@ const BlockSqueezeView: FC<BlockViewProps> = () => {
                   !subscriber?.legacySubscription
                 ) && (
                   <p className="no-margin body2-brand" style={{ marginBottom: 0 }}>
-                    <span className="_50-opacity hide-below-tablet">Don&#x27;t have a subscription? </span>
+                    <span className="_90-opacity hide-below-tablet">Don&#x27;t have a subscription? </span>
                     <Link href="/subscribe">Subscribe</Link>
                   </p>
                 )}
                 <div className="space hide-below-tablet"></div>
                 <p className="no-margin sue-brand body2-brand" style={{ marginBottom: 0 }}>
-                  <span className="_50-opacity ota-brand hide-below-tablet">Need help?&nbsp;</span>
+                  <span className="_90-opacity ota-brand hide-below-tablet">Need help?&nbsp;</span>
                   <a target="_blank" rel="noreferrer" href="tel:5733347115">
                     573-334-7115
                   </a>

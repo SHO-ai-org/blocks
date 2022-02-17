@@ -7,7 +7,7 @@ export const blockSpacer: BlockProps = {
   name: 'Spacer',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Space content',
   blockVariationToolbarDefaultOption: 'small',
   blockVariationToolbarOptions: [

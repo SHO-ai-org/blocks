@@ -1,8 +1,8 @@
-import * as SHO from '@sho-ai-org/pattern-library'
+import { styled } from '@sho-ai-org/pattern-library'
 import { FC } from 'react'
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 
-const Space = SHO.styled('div', {
+const Space = styled('div', {
   variants: {
     variant: {
       big: {

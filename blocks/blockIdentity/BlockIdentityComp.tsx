@@ -1,5 +1,5 @@
 import { useContext, useMemo, FC } from 'react'
-import * as SHO from '@sho-ai-org/pattern-library'
+import { Text, Gutter, Flex, Box } from '@sho-ai-org/pattern-library'
 import { downloadZip, getAssetUrlFromAssetObject } from '../../../../../utils/asset-utils'
 import { snackbarContext } from '../../../../../utils/context-utils'
 import MaterialIcon from '../../../MaterialIcon'
@@ -101,15 +101,15 @@ export const BlockIdentityComp: FC<{ theme: Theme }> = ({ theme }) => {
   }
 
   return (
-    <SHO.Gutter>
+    <Gutter>
       {/* {children} */}
-      <SHO.Text variant="h2" allowNaturalMb={true}>
+      <Text variant="h2" allowNaturalMb={true}>
         Visual Identity
-      </SHO.Text>
-      <SHO.Text variant="body1" allowNaturalMb={true}>
+      </Text>
+      <Text variant="body1" allowNaturalMb={true}>
         It all starts here. Use this guide as a high-level overview of how your brand comes to life.
-      </SHO.Text>
-      <SHO.Flex css={{ gap: '$4', flexWrap: 'wrap', pt: '$5', '@bp1': { flexWrap: 'nowrap' } }}>
+      </Text>
+      <Flex css={{ gap: '$4', flexWrap: 'wrap', pt: '$5', '@bp1': { flexWrap: 'nowrap' } }}>
         {[
           {
             title: 'toolkit',
@@ -152,7 +152,7 @@ export const BlockIdentityComp: FC<{ theme: Theme }> = ({ theme }) => {
           // },
         ].map(({ title, callback, isShown }) =>
           isShown ? (
-            <SHO.Box
+            <Box
               key={title}
               onClick={callback}
               css={{
@@ -168,15 +168,15 @@ export const BlockIdentityComp: FC<{ theme: Theme }> = ({ theme }) => {
                   flex: '1 1 auto',
                 },
               }}>
-              <SHO.Text variant="h6">{title}</SHO.Text>
-              <SHO.Box css={{ textAlign: 'right' }}>
+              <Text variant="h6">{title}</Text>
+              <Box css={{ textAlign: 'right' }}>
                 <MaterialIcon style={{ fontSize: '20px' }} iconName="file_download" />
-              </SHO.Box>
-            </SHO.Box>
+              </Box>
+            </Box>
           ) : null,
         )}
-      </SHO.Flex>
-    </SHO.Gutter>
+      </Flex>
+    </Gutter>
   )
 }
 

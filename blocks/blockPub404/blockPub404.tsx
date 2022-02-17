@@ -8,7 +8,7 @@ export const blockPub404: BlockProps = {
   name: '404 Page',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: '404 Page',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

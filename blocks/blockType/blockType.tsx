@@ -8,7 +8,7 @@ export const blockType: BlockProps = {
   name: 'Type',
   viewComponent: View,
   editComponent: Edit,
-  IconComponent: <div>Icon</div>,
+
   description: 'Identity font type',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

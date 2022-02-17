@@ -8,7 +8,7 @@ export const blockColors: BlockProps = {
   name: 'Colors',
   viewComponent: View,
   editComponent: Edit,
-  IconComponent: <div>Icon</div>,
+
   description: 'Identity colors',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

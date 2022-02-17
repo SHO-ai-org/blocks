@@ -10,7 +10,7 @@ export const blockPubCheckout: BlockProps<BlockPubCheckoutProps> = {
   name: 'Publication Checkout',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Publication checkout',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

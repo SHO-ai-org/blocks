@@ -8,7 +8,7 @@ export const blockPubPayments: BlockProps = {
   name: 'Publication Payments',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Payment for publication',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

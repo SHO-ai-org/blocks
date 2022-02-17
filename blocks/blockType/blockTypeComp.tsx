@@ -1,4 +1,4 @@
-import * as SHO from '@sho-ai-org/pattern-library'
+import { Text, Gutter, Box, Flex } from '@sho-ai-org/pattern-library'
 import { FC } from 'react'
 import { Theme } from '../../../../../utils/typescript-utils'
 
@@ -19,16 +19,16 @@ type VariantProps =
   | 'body2'
 
 export const BlockTypeComp: FC<{ theme: Theme }> = ({ theme, children }) => (
-  <SHO.Gutter>
-    <SHO.Text variant="h2" allowNaturalMb="true">
+  <Gutter>
+    <Text variant="h2" allowNaturalMb="true">
       Type
-    </SHO.Text>
-    <SHO.Text allowNaturalMb="true">
+    </Text>
+    <Text allowNaturalMb="true">
       Typography is a visual element that arranges your brands written copy in a legible way and aligns your messaging
       with your brand personality.
-    </SHO.Text>
+    </Text>
     {children && children}
-    <SHO.Box
+    <Box
       css={{
         backgroundColor: '$gs1',
         overflowX: 'auto',
@@ -100,43 +100,43 @@ export const BlockTypeComp: FC<{ theme: Theme }> = ({ theme, children }) => (
             spacing: `${theme.scaleCategories['body2'].letterSpacing}em`,
           },
         ].map(({ title, variant, font, weight, size, spacing }) => (
-          <SHO.Flex
+          <Flex
             key={variant}
             css={{ backgroundColor: '$gs1', color: '$gs5', p: '$5', borderBottom: '1px solid $gs2' }}
             justify="between">
-            <SHO.Text variant={variant} css={{ flex: '1 1 auto' }}>
+            <Text variant={variant} css={{ flex: '1 1 auto' }}>
               {title}
-            </SHO.Text>
-            <SHO.Flex css={{ gap: '$2', flex: '1 1 auto' }} justify="between">
-              <SHO.Box>
-                <SHO.Text variant="overline" css={{ color: '$gs3' }}>
+            </Text>
+            <Flex css={{ gap: '$2', flex: '1 1 auto' }} justify="between">
+              <Box>
+                <Text variant="overline" css={{ color: '$gs3' }}>
                   Font
-                </SHO.Text>
-                <SHO.Text variant="body2">{font}</SHO.Text>
-              </SHO.Box>
-              <SHO.Box>
-                <SHO.Text variant="overline" css={{ color: '$gs3' }}>
+                </Text>
+                <Text variant="body2">{font}</Text>
+              </Box>
+              <Box>
+                <Text variant="overline" css={{ color: '$gs3' }}>
                   Weight
-                </SHO.Text>
-                <SHO.Text variant="body2">{weight}</SHO.Text>
-              </SHO.Box>
-              <SHO.Box>
-                <SHO.Text variant="overline" css={{ color: '$gs3' }}>
+                </Text>
+                <Text variant="body2">{weight}</Text>
+              </Box>
+              <Box>
+                <Text variant="overline" css={{ color: '$gs3' }}>
                   Size
-                </SHO.Text>
-                <SHO.Text variant="body2">{size}</SHO.Text>
-              </SHO.Box>
-              <SHO.Box>
-                <SHO.Text variant="overline" css={{ color: '$gs3' }}>
+                </Text>
+                <Text variant="body2">{size}</Text>
+              </Box>
+              <Box>
+                <Text variant="overline" css={{ color: '$gs3' }}>
                   Spacing
-                </SHO.Text>
-                <SHO.Text variant="body2">{spacing}</SHO.Text>
-              </SHO.Box>
-            </SHO.Flex>
-          </SHO.Flex>
+                </Text>
+                <Text variant="body2">{spacing}</Text>
+              </Box>
+            </Flex>
+          </Flex>
         ))}
-    </SHO.Box>
-  </SHO.Gutter>
+    </Box>
+  </Gutter>
 )
 
 export default BlockTypeComp

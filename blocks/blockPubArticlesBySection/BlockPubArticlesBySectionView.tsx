@@ -23,9 +23,12 @@ const BlockPubArticlesBySectionView: FC<
         <div className="bordered-title">
           <Link href={sectionHref}>
             <a className="w-inline-block" style={{ cursor: 'pointer' }}>
-              <h6 className={`${sectionName?.toLocaleLowerCase() === 'sponsored content' ? 'dan-brand' : ''}`}>
+              <h2
+                className={`${
+                  sectionName?.toLocaleLowerCase() === 'sponsored content' ? 'dan-brand h6-brand' : 'h6-brand'
+                }`}>
                 {sectionName}
-              </h6>
+              </h2>
             </a>
           </Link>
         </div>
@@ -33,9 +36,9 @@ const BlockPubArticlesBySectionView: FC<
           <div role="list" className="grid-thirds w-dyn-items">
             {topArticlesBySection.map(el => (
               <div role="listitem" className="w-dyn-item" key={el.href}>
-                <div className="grid-post">
-                  <Link href={el.href} passHref>
-                    <a className="w-inline-block" style={{ cursor: 'pointer' }}>
+                <Link href={el.href} passHref>
+                  <div className="grid-post" style={{ cursor: 'pointer' }}>
+                    <span className="w-inline-block">
                       {el.src && (
                         <Box
                           css={{
@@ -58,31 +61,29 @@ const BlockPubArticlesBySectionView: FC<
                         </Box>
                       )}
                       <div className="_20px"></div>
-                    </a>
-                  </Link>
-                  <div className="post-preview-title reduced-margin">
-                    {sectionHref && (
-                      <Link href={sectionHref}>
-                        <a className="w-inline-block" style={{ cursor: 'pointer' }}>
+                    </span>
+                    <div className="post-preview-title reduced-margin">
+                      {sectionHref && (
+                        <div className="w-inline-block ben-brand">
                           <div className="div-block-16">
                             <div className="overline-brand no-margin">{sectionName}</div>
                             <div className="_5px"></div>
                             <div className="overline-brand no-margin"> | </div>
                             <div className="_5px"></div>
-                            <div className="overline-brand opacity-50 no-margin">
+                            <div className="overline-brand opacity-90 no-margin">
                               {monthNames[el.month]} {el.day}, {el.year}
                             </div>
                           </div>
-                        </a>
-                      </Link>
-                    )}
-                    <Link href={el.href} passHref>
-                      <a className="post-link-block w-inline-block" style={{ cursor: 'pointer' }}>
-                        <h5>{el.title}</h5>
+                        </div>
+                      )}
+                      <a href={el.href}>
+                        <span className="post-link-block w-inline-block">
+                          <h3 className="h5-brand">{el.title}</h3>
+                        </span>
                       </a>
-                    </Link>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -93,7 +94,9 @@ const BlockPubArticlesBySectionView: FC<
             <div role="list" className="w-dyn-items">
               <div role="listitem" className="w-dyn-item">
                 <Link href={sectionHref}>
-                  <a className="button button-brand button-secondary-brand sue-brand w-button">
+                  <a
+                    className="button button-brand button-secondary-brand sue-brand w-button"
+                    style={{ cursor: 'pointer' }}>
                     View all {sectionName}
                   </a>
                 </Link>

@@ -7,7 +7,7 @@ export const blockDivider: BlockProps = {
   name: 'Divider',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Seperate content',
   blockVariationToolbarDefaultOption: 'small',
   blockVariationToolbarOptions: [

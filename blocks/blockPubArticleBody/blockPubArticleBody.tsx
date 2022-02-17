@@ -34,7 +34,7 @@ export const blockPubArticleBody: BlockProps<{
   name: 'Article Body',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Article text',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

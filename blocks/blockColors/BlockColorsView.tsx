@@ -1,5 +1,5 @@
 import { FC, useContext } from 'react'
-import * as SHO from '@sho-ai-org/pattern-library'
+import { Text } from '@sho-ai-org/pattern-library'
 import * as C from './BlockColorComp'
 import { convertThemeColor2Rgba } from '../../../../../utils/color-utils'
 import copy from 'copy-to-clipboard'
@@ -35,9 +35,9 @@ const BlockColorsView: FC<BlockViewProps> = ({ theme }) => {
                 openSnackbar({ message: `color "${colorValue}" copied to clipboard` })
               }
             }}>
-            <SHO.Text variant="caption" css={{ pr: '$2' }}>
+            <Text variant="caption" css={{ pr: '$2' }}>
               {colorValue}
-            </SHO.Text>
+            </Text>
             <div>
               <MaterialIcon style={{ fontSize: '15px' }} iconName="content_copy" />
             </div>

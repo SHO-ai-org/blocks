@@ -1,6 +1,6 @@
 import { useCallback, useContext, useState, FC } from 'react'
 import useIsMounted from 'ismounted'
-import * as SHO from '@sho-ai-org/pattern-library'
+import { Text, Gutter, Flex, Box } from '@sho-ai-org/pattern-library'
 import Image from 'next/image'
 import placeholderLogo from '../../../../../../public/images/placeholderLogo.png'
 import { useDropzone } from 'react-dropzone'
@@ -169,14 +169,14 @@ const BlockLogosEdit: FC<BlockEditProps> = props => {
   })
 
   return (
-    <SHO.Gutter>
-      <SHO.Text variant="h2" allowNaturalMb="true">
+    <Gutter>
+      <Text variant="h2" allowNaturalMb="true">
         Logos
-      </SHO.Text>
-      <SHO.Text allowNaturalMb="true" variant="body1">
+      </Text>
+      <Text allowNaturalMb="true" variant="body1">
         Logos act as the visual aspects that form part of the overall brand.
-      </SHO.Text>
-      <SHO.Flex css={{ gap: '$4', flexWrap: 'wrap', '@bp1': { flexWrap: 'nowrap' } }}>
+      </Text>
+      <Flex css={{ gap: '$4', flexWrap: 'wrap', '@bp1': { flexWrap: 'nowrap' } }}>
         {[
           {
             title: 'horizontal',
@@ -194,7 +194,7 @@ const BlockLogosEdit: FC<BlockEditProps> = props => {
             logoKey: theme?.logos?.[0]?.verticallockup?.imageAssetKey,
           },
         ].map(({ title, logoKey, themeId }) => (
-          <SHO.Box
+          <Box
             key={title}
             css={{
               backgroundColor: '$pri',
@@ -223,14 +223,14 @@ const BlockLogosEdit: FC<BlockEditProps> = props => {
                 }}
               />
             ) : (
-              <SHO.Box
+              <Box
                 css={{
                   position: 'relative',
                   height: '235px',
                   m: '$12',
                 }}>
                 <Image src={placeholderLogo} alt="Client Logo" layout="fill" objectFit="contain" />
-              </SHO.Box>
+              </Box>
             )}
             <div
               {...getRootProps({ className: `dropzone_input_${title}` })}
@@ -242,7 +242,7 @@ const BlockLogosEdit: FC<BlockEditProps> = props => {
                   setUploadInProgress(false)
                 }}
               />
-              <SHO.Flex
+              <Flex
                 as="div"
                 data-intercom-target={title}
                 css={{
@@ -261,18 +261,14 @@ const BlockLogosEdit: FC<BlockEditProps> = props => {
                   scrollMarginTop: '60px',
                 }}
                 justify="between">
-                {isDragActive ? (
-                  <SHO.Text variant="h6">upload {title}</SHO.Text>
-                ) : (
-                  <SHO.Text variant="h6">upload {title}</SHO.Text>
-                )}
+                {isDragActive ? <Text variant="h6">upload {title}</Text> : <Text variant="h6">upload {title}</Text>}
                 <MaterialIcon style={{ fontSize: '20px' }} iconName="file_upload" />
-              </SHO.Flex>
+              </Flex>
             </div>
-          </SHO.Box>
+          </Box>
         ))}
-      </SHO.Flex>
-    </SHO.Gutter>
+      </Flex>
+    </Gutter>
   )
 }
 

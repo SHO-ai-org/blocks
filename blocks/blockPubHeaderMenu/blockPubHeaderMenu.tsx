@@ -1,26 +1,16 @@
-import React from 'react'
+import { BlockPubHeaderMenu, PubHeaderMenuCustomPageData } from '@sho-ai-org/pattern-library'
 
 import { BlockTemplateProps } from '../../../../../utils/typescript-utils'
-import View from './BlockPubHeaderMenuView'
-
-export type PubHeaderMenuSectionData = {
-  sectionName: string
-  href: string
-}
-
-export type PubHeaderMenuCustomPageData = {
-  sections: PubHeaderMenuSectionData[]
-  sectionsInHeader: PubHeaderMenuSectionData[]
-}
+import withNextAuthProps from '../../../../../hoc/withNextAuthProps'
 
 export const blockPubHeaderMenu: BlockTemplateProps<{
   ShapeOfCustomPropsDerivedFromPageData: PubHeaderMenuCustomPageData
 }> = {
   id: 'blockPubHeaderMenu',
   name: 'Publication Header',
-  viewComponent: View,
-  editComponent: View,
-  IconComponent: <div>Icon</div>,
+  viewComponent: withNextAuthProps(BlockPubHeaderMenu) as any,
+  editComponent: withNextAuthProps(BlockPubHeaderMenu) as any,
+
   description: 'Header of publication',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

@@ -147,7 +147,7 @@ const BlockPubCheckoutView = () => null
 //                       {formatToPrice(stripePlans[subscriptionId].price)} / week
 //                     </p>
 //                   )}
-//                   <p className="caption-brand padding-top _50-opacity">Charged monthly / Cancel anytime</p>
+//                   <p className="caption-brand padding-top _90-opacity">Charged monthly / Cancel anytime</p>
 //                 </div>
 //                 {subscriptionId && (
 //                   <div className="price-selector sue-background-brand">

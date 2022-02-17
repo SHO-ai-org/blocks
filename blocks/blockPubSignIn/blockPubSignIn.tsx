@@ -34,7 +34,7 @@ export const blockPubSignIn: BlockProps<{
   name: 'Publication Sign In',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Signinn into publication',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

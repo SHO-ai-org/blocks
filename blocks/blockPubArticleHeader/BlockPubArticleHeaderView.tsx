@@ -15,6 +15,8 @@ const BlockPubArticleHeader: FC<
 > = props => {
   const { sectionName, sectionSlug, day, month, year, authorBlocksData } = props.blockCustomData
 
+  // console.log('Article Header props:', props)
+
   return (
     <>
       {/* ARTICLE HEADER  */}
@@ -37,7 +39,7 @@ const BlockPubArticleHeader: FC<
                     <div className="_5px"></div>
                   </>
                 )}
-                <div className="overline-brand opacity-50">
+                <div className="overline-brand opacity-90">
                   {monthNames[month]} {day}, {year}
                 </div>
               </div>
@@ -99,7 +101,9 @@ const BlockPubArticleHeader: FC<
 
               {props.data.byline && (
                 <div className="author small-text">
-                  <div className="no-margin">{props.data.byline}</div>
+                  <div className="no-margin">
+                    <div className="h5-brand muted">{props.data.byline}</div>
+                  </div>
                 </div>
               )}
             </div>

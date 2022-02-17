@@ -7,7 +7,7 @@ export const blockIdentity: BlockProps = {
   name: 'Identity',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Visual identity summary',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

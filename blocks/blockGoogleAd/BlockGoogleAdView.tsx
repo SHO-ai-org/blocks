@@ -1,3 +1,4 @@
+import { Box, ShoImage } from '@sho-ai-org/pattern-library'
 import React, { FC, useEffect } from 'react'
 
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
@@ -19,7 +20,20 @@ const BlockGoogleAdView: FC<BlockViewProps> = () => {
           window?.location.host.includes('sho-demo') ||
           window?.location.host.includes('sho-site-dev.com') ||
           window?.location.host.includes('sho-site.com')) ? (
-          <img src="https://via.placeholder.com/1080x139.png?text=Google+Ad+Placeholder" alt="google ad" />
+          <Box
+            css={{
+              div: {
+                textAlign: 'center',
+              },
+            }}>
+            <ShoImage
+              src="https://public-assets-prod.sho-app.co.uk/brand_0872ee40-e15a-4a2f-bf59-900ff5396792/asset_siteade6-0000-0000-000googleads.webp"
+              height="70"
+              width="540"
+              alt="google ad"
+              layout="responsive"
+            />
+          </Box>
         ) : (
           <ins
             className="adsbygoogle"

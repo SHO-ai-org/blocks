@@ -25,7 +25,7 @@ export const blockPubHomeHero: BlockProps<{
   name: 'Home Hero',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Hero of a publications',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

@@ -20,7 +20,7 @@ export const blockPubFooter: BlockTemplateProps<{
   name: 'Footer',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Publication Footer content',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

@@ -15,7 +15,7 @@ export const blockPubSectionMain: BlockProps<{
   name: 'Section Main',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Section content',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

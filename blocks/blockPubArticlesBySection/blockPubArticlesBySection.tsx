@@ -34,7 +34,7 @@ export const blockPubArticlesBySection: BlockProps<{
   name: 'Articles Section',
   viewComponent: View,
   editComponent: Edit,
-  IconComponent: <div>Icon</div>,
+
   description: 'Section with Related Articles',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

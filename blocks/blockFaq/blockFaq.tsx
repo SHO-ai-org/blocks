@@ -8,7 +8,7 @@ export const blockFaq: BlockProps = {
   name: 'FAQ',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Section with Related Articles',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

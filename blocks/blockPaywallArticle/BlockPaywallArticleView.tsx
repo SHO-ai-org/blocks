@@ -69,10 +69,10 @@ const BlockPaywallArticle: FC<
           </p>
           <div className="button-tertiary-brand sue-border-brand">
             <div className="product-callout ali-background-brand sue-brand">
-              <h6 className="no-margin">
+              <h2 className="no-margin h6-brand">
                 Reader&#x27;s Choice
                 <br />
-              </h6>
+              </h2>
             </div>
             <div className="price-selector ben-background-brand center-align sue-brand">
               <h2 className="h2-brand responsive">{stripePlans.digital.name}</h2>
@@ -86,7 +86,7 @@ const BlockPaywallArticle: FC<
                 }}>
                 Subscribe Now
               </a>
-              <p className="caption-brand padding-top _50-opacity">Charged monthly / Cancel anytime</p>
+              <p className="caption-brand padding-top _90-opacity">Charged monthly / Cancel anytime</p>
             </div>
             <div className="price-selector sue-background-brand">
               <p>

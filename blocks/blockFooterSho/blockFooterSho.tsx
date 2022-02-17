@@ -7,7 +7,7 @@ export const blockFooterSho: BlockProps = {
   name: 'Footer SHO.ai',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'SHO.ai footer ',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

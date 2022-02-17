@@ -21,7 +21,7 @@ const BlockPubSectionRelatedArticlesView: FC<
     <div className="section-related-stories section wf-section" style={{ backgroundColor: '#fff' }}>
       <div className="main-container">
         <div className="bordered-title">
-          <h6 className="bordered-title-heading">Latest</h6>
+          <h3 className="bordered-title-heading h6-brand">Latest</h3>
         </div>
         <div className="w-dyn-list">
           <div role="list" className="wide-posts-grid-wrapper w-dyn-items">

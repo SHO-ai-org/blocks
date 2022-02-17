@@ -26,7 +26,7 @@ export const blockThankYou: BlockProps<{ ShapeOfCustomPropsDerivedFromPageData: 
   name: 'Thank You',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Thank you page',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

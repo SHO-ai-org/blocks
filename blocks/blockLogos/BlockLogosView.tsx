@@ -1,4 +1,4 @@
-import * as SHO from '@sho-ai-org/pattern-library'
+import { Text, Gutter, Box, Flex } from '@sho-ai-org/pattern-library'
 import ImageNext from 'next/image'
 import placeholderLogo from '../../../../../../public/images/placeholderLogo.png'
 import ImageSHO from '../../../Image'
@@ -8,14 +8,14 @@ import { FC } from 'react'
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 
 const BlockLogosView: FC<BlockViewProps> = ({ theme }) => (
-  <SHO.Gutter>
-    <SHO.Text variant="h2" allowNaturalMb="true">
+  <Gutter>
+    <Text variant="h2" allowNaturalMb="true">
       Logos
-    </SHO.Text>
-    <SHO.Text allowNaturalMb="true" variant="body1">
+    </Text>
+    <Text allowNaturalMb="true" variant="body1">
       Logos act as the visual aspects that form part of the overall brand.
-    </SHO.Text>
-    <SHO.Flex css={{ gap: '$4', flexWrap: 'wrap', '@bp1': { flexWrap: 'nowrap' } }}>
+    </Text>
+    <Flex css={{ gap: '$4', flexWrap: 'wrap', '@bp1': { flexWrap: 'nowrap' } }}>
       {[
         {
           title: 'horizontal',
@@ -36,7 +36,7 @@ const BlockLogosView: FC<BlockViewProps> = ({ theme }) => (
         }
 
         return (
-          <SHO.Box
+          <Box
             key={title}
             css={{
               backgroundColor: '$pri',
@@ -60,16 +60,16 @@ const BlockLogosView: FC<BlockViewProps> = ({ theme }) => (
                 }}
               />
             ) : (
-              <SHO.Box
+              <Box
                 css={{
                   position: 'relative',
                   height: '235px',
                   m: '$12',
                 }}>
                 <ImageNext src={placeholderLogo} alt="Client Logo" layout="fill" objectFit="contain" />
-              </SHO.Box>
+              </Box>
             )}
-            <SHO.Flex
+            <Flex
               as="div"
               css={{
                 backgroundColor: '$gs12',
@@ -92,14 +92,14 @@ const BlockLogosView: FC<BlockViewProps> = ({ theme }) => (
                   download(src, title)
                 }
               }}>
-              <SHO.Text variant="h6">{title}</SHO.Text>
+              <Text variant="h6">{title}</Text>
               {logoKey && <MaterialIcon style={{ fontSize: '20px' }} iconName="file_download" />}
-            </SHO.Flex>
-          </SHO.Box>
+            </Flex>
+          </Box>
         )
       })}
-    </SHO.Flex>
-  </SHO.Gutter>
+    </Flex>
+  </Gutter>
 )
 
 export default BlockLogosView

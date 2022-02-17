@@ -27,7 +27,7 @@ export const blockPubTagRelatedArticles: BlockProps<{
   name: 'Tag Articles',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Header area for tag',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

@@ -1,8 +1,8 @@
-import * as SHO from '@sho-ai-org/pattern-library'
+import { styled, Gutter } from '@sho-ai-org/pattern-library'
 import { FC } from 'react'
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 
-const Space = SHO.styled('div', {
+const Space = styled('div', {
   variants: {
     variant: {
       big: {
@@ -18,16 +18,16 @@ const Space = SHO.styled('div', {
   },
 })
 
-const HR = SHO.styled('hr', {
+const HR = styled('hr', {
   border: 'none',
   borderBottom: '1px solid $ter',
 })
 
 const DividerView: FC<BlockViewProps> = ({ variant }) => (
   <Space variant={variant}>
-    <SHO.Gutter>
+    <Gutter>
       <HR />
-    </SHO.Gutter>
+    </Gutter>
   </Space>
 )
 

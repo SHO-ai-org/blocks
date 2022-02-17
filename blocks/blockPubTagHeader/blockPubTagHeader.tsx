@@ -14,7 +14,7 @@ export const blockPubTagHeader: BlockProps<{
   name: 'Tag Header',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Header area for tag',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

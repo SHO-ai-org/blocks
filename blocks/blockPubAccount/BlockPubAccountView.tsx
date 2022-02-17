@@ -241,15 +241,26 @@ const BlockPubAccountView: FC<BlockViewProps> = () => {
 
                   <p>Accounts created prior Nov 26 2021 must be changed by the Semissourian.</p>
                   <p>Please choose a plan and send an email:</p>
-                  <ul>
+                  <ul
+                    style={{
+                      marginTop: '15px',
+                      marginBottom: '15px',
+                      paddingLeft: '30px',
+                    }}>
                     {/* TODO: add mailto with subject and body  */}
-                    <li>
+                    <li
+                      style={{
+                        marginBottom: '15px',
+                      }}>
                       <a style={{ cursor: 'pointer' }}>
                         {stripePlans.digital.name} — {formatToPrice(stripePlans.digital.price)} /{' '}
                         {stripePlans.digital.occurence}
                       </a>
                     </li>
-                    <li>
+                    <li
+                      style={{
+                        marginBottom: '15px',
+                      }}>
                       <a style={{ cursor: 'pointer' }}>
                         {stripePlans.digitalPlus.name} — {formatToPrice(stripePlans.digitalPlus.price)} /{' '}
                         {stripePlans.digitalPlus.occurence}

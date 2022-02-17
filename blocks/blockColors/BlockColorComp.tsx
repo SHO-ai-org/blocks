@@ -1,7 +1,7 @@
-import * as SHO from '@sho-ai-org/pattern-library'
+import { Text, Gutter, styled, Box } from '@sho-ai-org/pattern-library'
 import React, { FC } from 'react'
 
-export const ColorTextContainer = SHO.styled('div', {
+export const ColorTextContainer = styled('div', {
   backgroundColor: '$gs12',
   p: '$4',
   display: 'flex',
@@ -17,7 +17,7 @@ export const ColorTextContainer = SHO.styled('div', {
   },
 })
 
-const ColorCardsContainer = SHO.styled('div', {
+const ColorCardsContainer = styled('div', {
   display: 'flex',
   alignItems: 'stretch',
   flexWrap: 'wrap',
@@ -29,13 +29,13 @@ export const Container: FC<{
   uiCallback: ({ title, id }: { title: string; id: string }) => React.ReactNode
   cssColorCardsContainer: any
 }> = ({ uiCallback, cssColorCardsContainer = {} }) => (
-  <SHO.Gutter>
-    <SHO.Text variant="h2" allowNaturalMb="true">
+  <Gutter>
+    <Text variant="h2" allowNaturalMb="true">
       Colors
-    </SHO.Text>
-    <SHO.Text allowNaturalMb="true">
+    </Text>
+    <Text allowNaturalMb="true">
       Color brings a brand to life and gives clarity, consistency, and authenticity to communications.
-    </SHO.Text>
+    </Text>
     <ColorCardsContainer css={cssColorCardsContainer}>
       {[
         {
@@ -64,10 +64,10 @@ export const Container: FC<{
         },
       ].map(({ title, id }) => (
         <div key={title}>
-          <SHO.Text variant="overline" allowNaturalMb="true">
+          <Text variant="overline" allowNaturalMb="true">
             {title}
-          </SHO.Text>
-          <SHO.Box
+          </Text>
+          <Box
             css={{
               backgroundColor: `$${id}`,
               color: '$gs1',
@@ -79,15 +79,15 @@ export const Container: FC<{
                 flex: '1 1 auto',
               },
             }}>
-            <SHO.Box
+            <Box
               css={{
                 height: '270px',
               }}
             />
             {uiCallback({ title, id })}
-          </SHO.Box>
+          </Box>
         </div>
       ))}
     </ColorCardsContainer>
-  </SHO.Gutter>
+  </Gutter>
 )

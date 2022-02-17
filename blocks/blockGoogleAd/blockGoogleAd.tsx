@@ -8,7 +8,7 @@ export const blockGoogleAd: BlockProps = {
   name: 'Google Ad',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Google Ad content',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

@@ -8,7 +8,7 @@ export const blockEmailCapture: BlockTemplateProps = {
   name: 'Email Capture',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Capture Emails',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

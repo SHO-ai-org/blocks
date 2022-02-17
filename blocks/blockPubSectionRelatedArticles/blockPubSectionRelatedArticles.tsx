@@ -33,7 +33,7 @@ export const blockPubSectionRelatedArticles: BlockProps<{
   name: 'Related Storeis',
   viewComponent: View,
   editComponent: View,
-  IconComponent: <div>Icon</div>,
+
   description: 'Section with Related Stories',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

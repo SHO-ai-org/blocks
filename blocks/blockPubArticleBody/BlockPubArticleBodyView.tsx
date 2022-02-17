@@ -4,22 +4,7 @@ import { FC, useCallback, useEffect, useState } from 'react'
 
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 import Image from '../../../Image'
-import { BlockPubArticleHeaderProps } from '../blockPubArticleHeader/blockPubArticleHeader'
-import { BlockPubSectionMainViewProps } from '../blockPubSectionMain/blockPubSectionMain'
 import { BlockPubArticleBodyCustomPageData, BlockPubArticleBodyProps } from './blockPubArticleBody'
-
-type HeroArticleData = {
-  id: string
-  href: string
-  title: string | undefined
-  src: string | undefined
-  releaseDate: string
-}
-
-type TagData = {
-  href: string
-  name: string
-}
 
 const ArticleProgressContainer = () => {
   const [scrollPercent, setScrollPercent] = useState(0)
@@ -65,14 +50,14 @@ const BlockPubArticleBodyView: FC<
 
   return (
     <div className="article-body wf-section" style={{ backgroundColor: 'white' }}>
-      <div className="progress-bar-section">
+      {/* <div className="progress-bar-section">
         <div className="main-container">
           <div className="article-progress-bar-title">
-            <h6 className="no-bottom-margin">{articleTitle}</h6>
+            <p className="no-bottom-margin h6-brand">{articleTitle}</p>
           </div>
           <ArticleProgressContainer />
         </div>
-      </div>
+      </div> */}
       <div className="main-container">
         <div className="w-layout-grid article-grid" style={{ maxWidth: '100%' }}>
           <div className="article-author-aside">
@@ -172,7 +157,7 @@ const BlockPubArticleBodyView: FC<
                               />
                             </Box>
                           )}
-                          <h5 className="text-dark">{el.title}</h5>
+                          <h3 className="text-dark h5-brand">{el.title}</h3>
                         </a>
                       </Link>
                     </div>

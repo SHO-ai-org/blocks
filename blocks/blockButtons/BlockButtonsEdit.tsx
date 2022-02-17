@@ -1,6 +1,6 @@
 import { useContext, useCallback, FC } from 'react'
 import useIsMounted from 'ismounted'
-import * as SHO from '@sho-ai-org/pattern-library'
+import { Text, styled, Box, Button } from '@sho-ai-org/pattern-library'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 import * as C from './BlockButtonsComp'
 // import { useMutation } from '@apollo/client'
@@ -13,12 +13,12 @@ import ToggleGroup from '../../../ToggleGroup'
 import { BlockEditProps } from '../../../../../utils/typescript-utils'
 import { useUpdateBrandStyleMutation } from '../../../../../graphql/operations'
 
-const TabsRoot = SHO.styled(TabsPrimitive.Root, {
+const TabsRoot = styled(TabsPrimitive.Root, {
   display: 'flex',
   flexDirection: 'column',
 })
 
-const TabsList = SHO.styled(TabsPrimitive.List, {
+const TabsList = styled(TabsPrimitive.List, {
   flexShrink: 0,
   display: 'flex',
   borderBottom: `1px solid $gs3`,
@@ -30,7 +30,7 @@ const TabsList = SHO.styled(TabsPrimitive.List, {
   },
 })
 
-const TabsTrigger = SHO.styled(TabsPrimitive.Trigger, {
+const TabsTrigger = styled(TabsPrimitive.Trigger, {
   all: 'unset',
   cursor: 'pointer',
   flex: 1,
@@ -50,7 +50,7 @@ const TabsTrigger = SHO.styled(TabsPrimitive.Trigger, {
 })
 
 const BorderUnit = ({ value, isActive }) => (
-  <SHO.Box
+  <Box
     css={{
       width: '34px',
       mx: '$1',
@@ -60,7 +60,7 @@ const BorderUnit = ({ value, isActive }) => (
 )
 
 const ColorUnit = ({ value }) => (
-  <SHO.Box
+  <Box
     css={{
       border: '1px solid $gs1',
       backgroundColor: `$${value}`,
@@ -129,8 +129,8 @@ const BlockButtonsEdit: FC<BlockEditProps> = ({ theme, brandStyleId }) => {
 
   return (
     <C.Container>
-      <SHO.Box>
-        <SHO.Box
+      <Box>
+        <Box
           css={{
             display: 'flex',
             flexFlow: 'row wrap',
@@ -149,16 +149,16 @@ const BlockButtonsEdit: FC<BlockEditProps> = ({ theme, brandStyleId }) => {
           }}>
           {C.options.map(({ id, title }) => (
             <div key={id}>
-              <SHO.Text css={{ mb: '$4' }}>{title}</SHO.Text>
-              <SHO.Button variant={id} label="Example" />
+              <Text css={{ mb: '$4' }}>{title}</Text>
+              <Button variant={id} label="Example" />
 
               <TabsRoot defaultValue="border" css={{ mt: '$4' }}>
                 <TabsList>
                   <TabsTrigger value="border">
-                    <SHO.Text>Border</SHO.Text>
+                    <Text>Border</Text>
                   </TabsTrigger>
                   <TabsTrigger value="color">
-                    <SHO.Text>Color</SHO.Text>
+                    <Text>Color</Text>
                   </TabsTrigger>
                 </TabsList>
                 <TabsPrimitive.Content value="border">
@@ -238,8 +238,8 @@ const BlockButtonsEdit: FC<BlockEditProps> = ({ theme, brandStyleId }) => {
               </TabsRoot>
             </div>
           ))}
-        </SHO.Box>
-      </SHO.Box>
+        </Box>
+      </Box>
     </C.Container>
   )
 }
