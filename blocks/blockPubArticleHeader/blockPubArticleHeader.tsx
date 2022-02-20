@@ -24,6 +24,11 @@ export type BlockPubArticleCustomPageData = {
         position: string | undefined
       }[]
     | undefined
+  title?: string
+  summary?: string
+  byline?: string
+  youtubeLink?: string
+  image?: string
 }
 
 export type BlockPubArticleHeaderProps = {
@@ -42,7 +47,6 @@ export type BlockPubArticleHeaderProps = {
 }
 
 export const blockPubArticleHeader: BlockProps<{
-  ShapeOfBlockDataInDB: BlockPubArticleHeaderProps
   ShapeOfCustomPropsDerivedFromPageData: BlockPubArticleCustomPageData
 }> = {
   id: 'blockPubArticleHeader',

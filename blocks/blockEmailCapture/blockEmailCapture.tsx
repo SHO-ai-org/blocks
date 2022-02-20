@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { BlockTemplateProps } from '../../../../../utils/typescript-utils'
+import { BlockProps } from '../../../../../utils/typescript-utils'
 import View from './BlockEmailCaptureView'
 
-export const blockEmailCapture: BlockTemplateProps = {
+export const blockEmailCapture: BlockProps = {
   id: 'blockEmailCapture',
   name: 'Email Capture',
   viewComponent: View,

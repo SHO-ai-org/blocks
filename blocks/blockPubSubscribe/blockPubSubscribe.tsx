@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { BlockProps } from '../../../../../utils/typescript-utils'
 import View from './BlockPubSubscribeView'
 
@@ -19,7 +17,7 @@ export type BlockPubSubscribeProps = {
   }[]
 }
 
-export const blockPubSubscribe: BlockProps<{ ShapeOfBlockDataInDB: BlockPubSubscribeProps }> = {
+export const blockPubSubscribe: BlockProps = {
   id: 'blockPubSubscribe',
   name: 'Publication Subscription',
   viewComponent: View,

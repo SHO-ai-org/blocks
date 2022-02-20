@@ -1,6 +1,5 @@
-import { Text, Gutter, Box, Flex } from '@sho-ai-org/pattern-library'
+import { Box, Flex, Gutter, Text, Theme } from '@sho-ai-org/pattern-library'
 import { FC } from 'react'
-import { Theme } from '../../../../../utils/typescript-utils'
 
 type VariantProps =
   | 'blockquote'

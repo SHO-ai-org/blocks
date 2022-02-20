@@ -2,16 +2,15 @@ import { DropdownExposed, useFormData } from '@sho-ai-org/pattern-library'
 import { FC } from 'react'
 
 import { BlockEditProps } from '../../../../../utils/typescript-utils'
-import { BlockPubArticlesBySectionProps, PubArticlesBySectionCustomDataProps } from './blockPubArticlesBySection'
+import { PubArticlesBySectionCustomDataProps } from './blockPubArticlesBySection'
 
 const BlockPubArticlesBySectionEdit: FC<
   BlockEditProps<{
-    ShapeOfBlockDataInDB: BlockPubArticlesBySectionProps
     ShapeOfCustomPropsDerivedFromPageData: PubArticlesBySectionCustomDataProps
   }>
 > = props => {
   const { formData, updateFormDataValue } = useFormData({
-    section: props?.data?.section,
+    section: props.blockCustomData.sectionName,
   })
   const { sectionDropdownList } = props.blockCustomData
 

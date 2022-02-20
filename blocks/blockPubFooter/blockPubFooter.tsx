@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { BlockTemplateProps } from '../../../../../utils/typescript-utils'
+import { BlockProps } from '../../../../../utils/typescript-utils'
 import View from './BlockPubFooterView'
 
 export type BlockTemplateSectionData = {
@@ -13,7 +13,7 @@ export type BlockTemplateCustomPageData = {
 }
 
 // TODO: didn't finsish refactoring because used as template block
-export const blockPubFooter: BlockTemplateProps<{
+export const blockPubFooter: BlockProps<{
   ShapeOfCustomPropsDerivedFromPageData: BlockTemplateCustomPageData
 }> = {
   id: 'blockPubFooter',

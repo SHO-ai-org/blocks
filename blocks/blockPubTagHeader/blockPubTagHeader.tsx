@@ -7,14 +7,17 @@ export type BlockPubTagHeaderProps = {
   name?: string
 }
 
+export type BlockPubTagHeaderCustomPageData = {
+  tagName?: string
+}
+
 export const blockPubTagHeader: BlockProps<{
-  ShapeOfBlockDataInDB: BlockPubTagHeaderProps
+  ShapeOfCustomPropsDerivedFromPageData: BlockPubTagHeaderCustomPageData
 }> = {
   id: 'blockPubTagHeader',
   name: 'Tag Header',
   viewComponent: View,
   editComponent: View,
-
   description: 'Header area for tag',
   blockVariationToolbarDefaultOption: '',
   blockVariationToolbarOptions: [],

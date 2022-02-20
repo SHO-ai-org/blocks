@@ -2,11 +2,11 @@ import { ShoImage } from '@sho-ai-org/pattern-library'
 import Link from 'next/link'
 import { FC } from 'react'
 
-import { BlockTemplateViewProps } from '../../../../../utils/typescript-utils'
+import { BlockViewProps } from '../../../../../utils/typescript-utils'
 import { BlockTemplateCustomPageData } from './blockPubFooter'
 
 const BlockPubFooterView: FC<
-  BlockTemplateViewProps<{
+  BlockViewProps<{
     ShapeOfCustomPropsDerivedFromPageData: BlockTemplateCustomPageData
   }>
 > = props => {

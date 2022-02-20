@@ -2,11 +2,11 @@ import { getCsrfToken, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { FC, useEffect, useRef, useState } from 'react'
 
-import { BlockTemplateViewProps } from '../../../../../utils/typescript-utils'
+import { BlockViewProps } from '../../../../../utils/typescript-utils'
 
 const defaultNewsletterId = 'mainNewsletter'
 
-const BlockEmailCaptureView: FC<BlockTemplateViewProps> = () => {
+const BlockEmailCaptureView: FC<BlockViewProps> = () => {
   const { status, data: session } = useSession()
   const subscriber = session?.user
   const ref = useRef<HTMLFormElement>(null)

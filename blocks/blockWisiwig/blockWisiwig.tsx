@@ -1,4 +1,3 @@
-import React from 'react'
 import { BlockProps } from '../../../../../utils/typescript-utils'
 import View from './BlockWisiwigView'
 

@@ -1,10 +1,10 @@
-import { Box, Wisiwig } from '@sho-ai-org/pattern-library'
+import { Box, WysiwygReader } from '@sho-ai-org/pattern-library'
 import Link from 'next/link'
 import { FC, useCallback, useEffect, useState } from 'react'
 
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 import Image from '../../../Image'
-import { BlockPubArticleBodyCustomPageData, BlockPubArticleBodyProps } from './blockPubArticleBody'
+import { BlockPubArticleBodyCustomPageData } from './blockPubArticleBody'
 
 const ArticleProgressContainer = () => {
   const [scrollPercent, setScrollPercent] = useState(0)
@@ -34,11 +34,10 @@ const ArticleProgressContainer = () => {
 
 const BlockPubArticleBodyView: FC<
   BlockViewProps<{
-    ShapeOfBlockDataInDB: BlockPubArticleBodyProps
     ShapeOfCustomPropsDerivedFromPageData: BlockPubArticleBodyCustomPageData
   }>
 > = props => {
-  const { articlesToAddSorted, tagListBlock, articleTitle } = props.blockCustomData
+  const { articlesToAddSorted, tagListBlock, articleTitle, content } = props.blockCustomData
 
   useEffect(() => {
     try {
@@ -92,10 +91,11 @@ const BlockPubArticleBodyView: FC<
                     color: '#1b1b1b',
                   },
                 }}>
-                {props.data.content && (
-                  <Wisiwig
-                    readOnly={true}
-                    initialValue={JSON.parse(props.data.content)} // TODO: need to get the proper type from wisiwig
+                {content && (
+                  <WysiwygReader
+                    // readOnly={true}
+                    css={{}}
+                    initialValue={JSON.parse(content)} // TODO: need to get the proper type from wisiwig
                   />
                 )}
               </Box>

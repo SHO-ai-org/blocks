@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { BlockProps } from '../../../../../utils/typescript-utils'
 import View from './BlockPubArticleBodyView'
 
@@ -24,10 +22,10 @@ export type BlockPubArticleBodyCustomPageData = {
   articlesToAddSorted: BlockPubArticleBodyHeroArticleData[]
   tagListBlock: BlockPubArticleBodyTagData[]
   articleTitle: string | undefined
+  content?: string
 }
 
 export const blockPubArticleBody: BlockProps<{
-  ShapeOfBlockDataInDB: BlockPubArticleBodyProps
   ShapeOfCustomPropsDerivedFromPageData: BlockPubArticleBodyCustomPageData
 }> = {
   id: 'blockPubArticleBody',

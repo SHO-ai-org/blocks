@@ -5,11 +5,10 @@ import { FC } from 'react'
 import { monthNames } from '../../../../../utils/date-utils'
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 import Image from '../../../Image'
-import { BlockPubArticlesBySectionProps, PubArticlesBySectionCustomDataProps } from './blockPubArticlesBySection'
+import { PubArticlesBySectionCustomDataProps } from './blockPubArticlesBySection'
 
 const BlockPubArticlesBySectionView: FC<
   BlockViewProps<{
-    ShapeOfBlockDataInDB: BlockPubArticlesBySectionProps
     ShapeOfCustomPropsDerivedFromPageData: PubArticlesBySectionCustomDataProps
   }>
 > = props => {

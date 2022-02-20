@@ -9,9 +9,8 @@ import { postData } from '../../../../../utils/rest-utils'
 import { formatToPrice } from '../../../../../utils/string-utils'
 import { getStripe } from '../../../../../utils/stripe-utils'
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
-import { BlockPubSubscribeProps } from './blockPubSubscribe'
 
-const BlockSubscribeView: FC<BlockViewProps<{ ShapeOfBlockDataInDB: BlockPubSubscribeProps }>> = () => {
+const BlockSubscribeView: FC<BlockViewProps> = () => {
   const { status, data: session } = useSession()
   const subscriber = session?.user
   const router = useRouter()

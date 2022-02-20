@@ -1,9 +1,9 @@
-import { useContext, useMemo, FC } from 'react'
-import { Text, Gutter, Flex, Box } from '@sho-ai-org/pattern-library'
+import { Box, Flex, Gutter, Text, Theme } from '@sho-ai-org/pattern-library'
+import { FC, useContext, useMemo } from 'react'
+
 import { downloadZip, getAssetUrlFromAssetObject } from '../../../../../utils/asset-utils'
 import { snackbarContext } from '../../../../../utils/context-utils'
 import MaterialIcon from '../../../MaterialIcon'
-import { Theme } from '../../../../../utils/typescript-utils'
 
 export const BlockIdentityComp: FC<{ theme: Theme }> = ({ theme }) => {
   const openSnackbar = useContext(snackbarContext)

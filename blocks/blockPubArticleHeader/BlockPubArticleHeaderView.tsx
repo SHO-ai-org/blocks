@@ -5,17 +5,15 @@ import { FC } from 'react'
 import { monthNames } from '../../../../../utils/date-utils'
 import { BlockViewProps } from '../../../../../utils/typescript-utils'
 import Image from '../../../Image'
-import { BlockPubArticleCustomPageData, BlockPubArticleHeaderProps } from './blockPubArticleHeader'
+import { BlockPubArticleCustomPageData } from './blockPubArticleHeader'
 
 const BlockPubArticleHeader: FC<
   BlockViewProps<{
     ShapeOfCustomPropsDerivedFromPageData: BlockPubArticleCustomPageData
-    ShapeOfBlockDataInDB: BlockPubArticleHeaderProps
   }>
 > = props => {
-  const { sectionName, sectionSlug, day, month, year, authorBlocksData } = props.blockCustomData
-
-  // console.log('Article Header props:', props)
+  const { sectionName, sectionSlug, day, month, year, authorBlocksData, title, youtubeLink, summary, byline, image } =
+    props.blockCustomData
 
   return (
     <>
@@ -44,9 +42,9 @@ const BlockPubArticleHeader: FC<
                 </div>
               </div>
               <h1 className="h2-brand" data-w-id="718e5325-78f5-ca43-db66-00de300264a3">
-                {props.data.title}
+                {title}
               </h1>
-              <div className="body1-brand qui-brand">{props.data.summary}</div>
+              <div className="body1-brand qui-brand">{summary}</div>
               {!!authorBlocksData?.length &&
                 authorBlocksData.map(authorBlock => {
                   return authorBlock.slug ? (
@@ -99,10 +97,10 @@ const BlockPubArticleHeader: FC<
                   ) : null
                 })}
 
-              {props.data.byline && (
+              {byline && (
                 <div className="author small-text">
                   <div className="no-margin">
-                    <div className="h5-brand muted">{props.data.byline}</div>
+                    <div className="h5-brand muted">{byline}</div>
                   </div>
                 </div>
               )}
@@ -110,7 +108,7 @@ const BlockPubArticleHeader: FC<
           </div>
         </div>
       </div>
-      {!props.data?.youtubeLink && props.data?.image && (
+      {!youtubeLink && image && (
         <div style={{ overflow: 'hidden' }}>
           <div style={{ backgroundColor: '#fff' }}>
             <div className="article-media wf-section">
@@ -126,12 +124,12 @@ const BlockPubArticleHeader: FC<
                 }}>
                 <Image
                   className="main-post-image"
-                  alt={props.data.title}
+                  alt={title}
                   layout="fill"
                   objectFit="contain"
                   asset={{
                     public: true,
-                    key: props.data.image,
+                    key: image,
                   }}
                 />
               </Box>
@@ -139,13 +137,13 @@ const BlockPubArticleHeader: FC<
           </div>
         </div>
       )}
-      {props.data?.youtubeLink && (
+      {youtubeLink && (
         <div className="article-media wf-section">
           <div className="video-wrapper" style={{ height: 'auto' }}>
             <div style={{ paddingTop: '56.17021276595745%', height: '100%' }} className="article-video w-video w-embed">
               <iframe
                 className="embedly-embed"
-                src={props.data?.youtubeLink}
+                src={youtubeLink}
                 scrolling="no"
                 title="YouTube embed"
                 frameBorder="0"

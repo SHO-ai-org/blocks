@@ -27,7 +27,6 @@ export type PubArticlesBySectionCustomDataProps = {
 }
 
 export const blockPubArticlesBySection: BlockProps<{
-  ShapeOfBlockDataInDB: BlockPubArticlesBySectionProps
   ShapeOfCustomPropsDerivedFromPageData: PubArticlesBySectionCustomDataProps
 }> = {
   id: 'blockPubArticlesBySection',

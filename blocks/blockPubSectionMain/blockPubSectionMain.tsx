@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { BlockProps } from '../../../../../utils/typescript-utils'
 import View from './BlockPubSectionMainView'
 
@@ -8,9 +6,7 @@ export type BlockPubSectionMainViewProps = {
   featuredInNav?: boolean
 }
 
-export const blockPubSectionMain: BlockProps<{
-  ShapeOfBlockDataInDB: BlockPubSectionMainViewProps
-}> = {
+export const blockPubSectionMain: BlockProps = {
   id: 'blockPubSectionMain',
   name: 'Section Main',
   viewComponent: View,

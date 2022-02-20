@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { BlockProps } from '../../../../../utils/typescript-utils'
 import View from './BlockPubAuthorOverviewView'
 
@@ -15,8 +13,10 @@ export type BlockPubAuthorOverviewDataProps = {
   linkedIn?: string
 }
 
+export type BlockPubAuthorOverviewCustomPageData = BlockPubAuthorOverviewDataProps
+
 export const blockPubAuthorOverview: BlockProps<{
-  ShapeOfBlockDataInDB: BlockPubAuthorOverviewDataProps
+  ShapeOfCustomPropsDerivedFromPageData: BlockPubAuthorOverviewCustomPageData
 }> = {
   id: 'blockPubAuthorOverview',
   name: 'Author Overview',
